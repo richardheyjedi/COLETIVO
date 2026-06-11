@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -11,10 +11,12 @@ export const PageTransitionOverlay = ({ children }: PageTransitionOverlayProps) 
   const [displayLocation, setDisplayLocation] = useState(location);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [statusText, setStatusText] = useState("SYNCHRONIZING");
+  const prevPathname = useRef(location.pathname);
 
   // Keep track of the page loading state sequence
   useEffect(() => {
-    if (location.pathname !== displayLocation.pathname) {
+    if (location.pathname !== prevPathname.current) {
+      prevPathname.current = location.pathname;
       setIsTransitioning(true);
 
       // Randomize vintage technical phrases on route transitions
@@ -46,7 +48,7 @@ export const PageTransitionOverlay = ({ children }: PageTransitionOverlayProps) 
         clearTimeout(timerEnd);
       };
     }
-  }, [location, displayLocation]);
+  }, [location]);
 
   // Curtain slider animations configuration
   const curtainVariants = {
