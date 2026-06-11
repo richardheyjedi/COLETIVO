@@ -43,9 +43,9 @@ export const Sobre = () => {
           <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-pink font-bold block mb-8 fade-up opacity-0">
             Quem Somos // Cøletivo
           </span>
-          <h1 ref={heroTitleRef} className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tighter uppercase text-brand-black mb-12 perspective-1000">
+          <h1 ref={heroTitleRef} className="font-display font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.15] tracking-tighter uppercase text-brand-black mb-12 perspective-1000 max-w-5xl">
             A CØLETIVO é um hub multifacetado especializado no{" "}
-            <span className="font-sans font-light italic lowercase text-brand-pink tracking-normal block sm:inline">desenvolvimento, gestão e expansão</span>{" "}
+            <span className="font-sans font-light italic lowercase text-brand-pink tracking-normal">desenvolvimento, gestão e expansão</span>{" "}
             de marcas de streetwear.
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 fade-up opacity-0">
