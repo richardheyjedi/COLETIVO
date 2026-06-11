@@ -50,7 +50,7 @@ export const Sobre = () => {
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 fade-up opacity-0">
             <div></div>
-            <p className="text-sm md:text-base font-medium uppercase tracking-[0.2em] text-brand-black/60 leading-loose">
+            <p className="text-sm md:text-base font-medium normal-case tracking-normal text-brand-black/60 leading-loose">
               Mais do que uma representação comercial, atuamos como uma plataforma de crescimento para marcas que desejam fortalecer sua presença no varejo e no atacado.
             </p>
           </div>
