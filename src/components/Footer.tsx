@@ -1,9 +1,12 @@
 import { useRef } from "react";
 import { ArrowRight, Instagram, Twitter, Youtube, ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
 import { Link, useLocation } from "react-router-dom";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Footer = () => {
   const containerRef = useRef<HTMLElement>(null);
@@ -12,7 +15,7 @@ export const Footer = () => {
   const { pathname } = useLocation();
 
   useGSAP(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || pathname !== "/") return;
 
     let splitTitle: SplitType | null = null;
     if (titleRef.current) {
@@ -43,27 +46,29 @@ export const Footer = () => {
     <footer ref={containerRef} className="py-24 bg-brand-true-black border-t border-brand-true-white/10 relative overflow-hidden">
       <div className="container mx-auto px-6 lg:px-12 xl:px-24 text-brand-true-white">
         
-        <div className="flex flex-col mb-32">
-           <div
-            ref={titleWrapperRef}
-            className="flex flex-col items-center text-center max-w-7xl mx-auto"
-          >
-            <span className="text-[10px] font-mono uppercase tracking-[0.8em] text-brand-pink font-bold mb-12 italic opacity-0 animate-[fadeIn_1s_ease-out_forwards] delay-300">// Final_Chapter</span>
-            <h2 ref={titleRef} className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter uppercase text-brand-true-white">
-              Faça parte do{" "}
-              <span className="font-sans font-light lowercase tracking-normal text-brand-pink italic inline-block whitespace-nowrap">CØLETIVO.</span>
-            </h2>
-          </div>
+        {pathname === "/" && (
+          <div className="flex flex-col mb-32">
+             <div
+              ref={titleWrapperRef}
+              className="flex flex-col items-center text-center max-w-7xl mx-auto"
+            >
+              <span className="text-[10px] font-mono uppercase tracking-[0.8em] text-brand-pink font-bold mb-12 italic opacity-0 animate-[fadeIn_1s_ease-out_forwards] delay-300">// Final_Chapter</span>
+              <h2 ref={titleRef} className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tighter uppercase text-brand-true-white">
+                Faça parte do{" "}
+                <span className="font-sans font-light lowercase tracking-normal text-brand-pink italic inline-block whitespace-nowrap">CØLETIVO.</span>
+              </h2>
+            </div>
 
-          <div className="mt-24 flex flex-col items-center">
-            <Link to="/contato" className="group relative overflow-hidden border border-brand-true-white px-16 py-6 transition-all duration-700 bg-transparent cursor-pointer">
-              <div className="absolute inset-0 bg-brand-true-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
-              <span className="relative z-10 font-bold uppercase tracking-[0.5em] text-[10px] text-brand-true-white group-hover:text-brand-true-black transition-colors duration-500 flex items-center gap-4">
-                Entrar em Contato <ArrowUpRight size={14} />
-              </span>
-            </Link>
+            <div className="mt-24 flex flex-col items-center">
+              <Link to="/contato" className="group relative overflow-hidden border border-brand-true-white px-16 py-6 transition-all duration-700 bg-transparent cursor-pointer">
+                <div className="absolute inset-0 bg-brand-true-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
+                <span className="relative z-10 font-bold uppercase tracking-[0.5em] text-[10px] text-brand-true-white group-hover:text-brand-true-black transition-colors duration-500 flex items-center gap-4">
+                  Entrar em Contato <ArrowUpRight size={14} />
+                </span>
+              </Link>
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Bottom Bar */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-12 border-t border-brand-true-white/10 pt-12">
