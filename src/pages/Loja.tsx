@@ -62,7 +62,7 @@ export const Loja = () => {
       </section>
 
       {/* Interactive Gallery */}
-      <EditorialPhotoGrid />
+      <EditorialPhotoGrid categoryFilter="LOJA" simpleMode={true} />
 
       <section className="py-24 md:py-40 bg-brand-white text-center flex flex-col items-center justify-center px-6">
         <h2 className="font-display font-black text-4xl md:text-6xl uppercase tracking-tighter mb-8 text-brand-black">

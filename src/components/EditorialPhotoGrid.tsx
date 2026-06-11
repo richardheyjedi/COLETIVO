@@ -93,12 +93,61 @@ const DEFAULT_LOOKS: Look[] = [
     year: "2026",
     shades: "Networking & Conexões",
     credits: "Cøletivo Experience"
+  },
+  {
+    id: "look-07",
+    title: "Editorial Streetwear A/W",
+    category: "LOJA",
+    model: "Heavy Cotton Hoodie",
+    location: "São Paulo, BR",
+    image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
+    year: "2026",
+    shades: "Tons Terrosos & Texturas",
+    credits: "Showroom Cøletivo"
+  },
+  {
+    id: "look-08",
+    title: "Curadoria Acessórios",
+    category: "LOJA",
+    model: "Bolsas Utilitárias",
+    location: "São Paulo, BR",
+    image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
+    year: "2026",
+    shades: "Design Funcional",
+    credits: "Styling: Cøletivo Crew"
+  },
+  {
+    id: "look-09",
+    title: "Lookbook Linha Core",
+    category: "LOJA",
+    model: "Camisetas Oversized",
+    location: "São Paulo, BR",
+    image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1200&auto=format&fit=crop",
+    year: "2026",
+    shades: "Algodão Sustentável 260g",
+    credits: "Campanha: Cøletivo Core"
+  },
+  {
+    id: "look-10",
+    title: "Estilo Urbano Ativo",
+    category: "LOJA",
+    model: "Puffer Jacket Concept",
+    location: "Showroom Sul",
+    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
+    year: "2026",
+    shades: "Isolamento Térmico Técnico",
+    credits: "Design: Studio Cøletivo"
   }
 ];
 
 const LOCAL_STORAGE_KEY = "coletivo_custom_gallery";
 
-export const EditorialPhotoGrid = () => {
+interface EditorialPhotoGridProps {
+  categoryFilter?: string;
+  simpleMode?: boolean;
+}
+
+export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: EditorialPhotoGridProps = {}) => {
   const [looks, setLooks] = useState<Look[]>([]);
   const [activeTab, setActiveTab] = useState<string>("ALL");
   const [selectedLookIndex, setSelectedLookIndex] = useState<number | null>(null);
@@ -147,6 +196,7 @@ export const EditorialPhotoGrid = () => {
 
   // Filter gallery looks
   const filteredLooks = looks.filter(look => {
+    if (categoryFilter) return look.category === categoryFilter;
     if (activeTab === "ALL") return true;
     if (activeTab === "CUSTOM") return look.isCustom;
     return look.category === activeTab;
@@ -294,90 +344,98 @@ export const EditorialPhotoGrid = () => {
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-8 border-b border-brand-black/5 pb-12">
           <div>
             <span className="text-[10px] font-mono tracking-[0.5em] text-brand-pink font-bold block mb-4 italic">
-              // Registro interno dos ambientes
+              {simpleMode ? "// Lookbook & Editorial" : "// Registro interno dos ambientes"}
             </span>
             <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl tracking-tighter text-brand-black">
-              Galeria <span className="font-sans font-light italic lowercase text-brand-pink">Cøletivo.</span>
+              {simpleMode ? "Lookbook" : "Galeria"} <span className="font-sans font-light italic lowercase text-brand-pink">Cøletivo.</span>
             </h2>
           </div>
 
           <div className="flex flex-col md:items-end w-full md:w-auto">
             <p className="text-xs tracking-[0.15em] font-medium text-brand-black/50 mb-6 max-w-md leading-relaxed text-left md:text-right">
-              Um registro dinâmico do design interior, ambientes e conexões da nossa sede. Clique em qualquer foto para ver os detalhes ou envie as suas fotos para personalizar a galeria.
+              {simpleMode 
+                ? "Uma seleção de editoriais, detalhes e peças da nossa curadoria de streetwear. Clique em qualquer foto para ver os créditos e detalhes visuais." 
+                : "Um registro dinâmico do design interior, ambientes e conexões da nossa sede. Clique em qualquer foto para ver os detalhes ou envie as suas fotos para personalizar a galeria."}
             </p>
 
-            <div className="flex flex-wrap gap-3 self-start md:self-auto">
-              {/* Reset Defaults button */}
-              <button
-                onClick={handleResetDefault}
-                className="flex items-center gap-2 border border-brand-black/10 px-4 py-2 hover:border-brand-black hover:bg-brand-black/5 transition-all duration-300 text-[10px] font-mono uppercase font-bold text-brand-black/60 hover:text-brand-black"
-                title="Restaurar fotos padrão"
-              >
-                <RefreshCw size={11} />
-                Restaurar Padrão
-              </button>
+            {!simpleMode && (
+              <div className="flex flex-wrap gap-3 self-start md:self-auto">
+                {/* Reset Defaults button */}
+                <button
+                  onClick={handleResetDefault}
+                  className="flex items-center gap-2 border border-brand-black/10 px-4 py-2 hover:border-brand-black hover:bg-brand-black/5 transition-all duration-300 text-[10px] font-mono uppercase font-bold text-brand-black/60 hover:text-brand-black"
+                  title="Restaurar fotos padrão"
+                >
+                  <RefreshCw size={11} />
+                  Restaurar Padrão
+                </button>
 
-              {/* Upload photo button */}
-              <button
-                onClick={() => setIsUploadOpen(true)}
-                className="flex items-center gap-2 bg-brand-black hover:bg-brand-pink text-brand-true-white px-5 py-2 transition-all duration-300 text-[10px] font-mono uppercase font-black tracking-wider"
-              >
-                <Plus size={14} />
-                Enviar Foto
-              </button>
-            </div>
+                {/* Upload photo button */}
+                <button
+                  onClick={() => setIsUploadOpen(true)}
+                  className="flex items-center gap-2 bg-brand-black hover:bg-brand-pink text-brand-true-white px-5 py-2 transition-all duration-300 text-[10px] font-mono uppercase font-black tracking-wider"
+                >
+                  <Plus size={14} />
+                  Enviar Foto
+                </button>
+              </div>
+            )}
           </div>
         </div>
 
         {/* Filters Tabs row */}
-        <div className="flex flex-wrap gap-2 md:gap-4 mb-12">
-          {[
-            { tag: "ALL", label: "Tudo" },
-            { tag: "LOJA", label: "Loja" },
-            { tag: "BARBEARIA", label: "Barbearia" },
-            { tag: "ESTÚDIO", label: "Estúdio" },
-            { tag: "LOUNGE", label: "Lounge" },
-            { tag: "CUSTOM", label: "Enviados por você" }
-          ].map((tab) => {
-            // Check if there are any custom looks before displaying tab or just show it
-            if (tab.tag === "CUSTOM" && !looks.some(l => l.isCustom)) return null;
-            
-            return (
-              <button
-                key={tab.tag}
-                onClick={() => setActiveTab(tab.tag)}
-                className={`px-4 py-2 text-[10px] sm:text-xs font-mono tracking-widest transition-all duration-300 border ${
-                  activeTab === tab.tag
-                    ? "bg-brand-black border-brand-black text-brand-true-white font-bold"
-                    : "bg-transparent border-brand-black/10 text-brand-black/60 hover:border-brand-black/30 hover:text-brand-black"
-                }`}
-              >
-                {tab.label}
-              </button>
-            );
-          })}
-        </div>
+        {!simpleMode && (
+          <div className="flex flex-wrap gap-2 md:gap-4 mb-12">
+            {[
+              { tag: "ALL", label: "Tudo" },
+              { tag: "LOJA", label: "Loja" },
+              { tag: "BARBEARIA", label: "Barbearia" },
+              { tag: "ESTÚDIO", label: "Estúdio" },
+              { tag: "LOUNGE", label: "Lounge" },
+              { tag: "CUSTOM", label: "Enviados por você" }
+            ].map((tab) => {
+              // Check if there are any custom looks before displaying tab or just show it
+              if (tab.tag === "CUSTOM" && !looks.some(l => l.isCustom)) return null;
+              
+              return (
+                <button
+                  key={tab.tag}
+                  onClick={() => setActiveTab(tab.tag)}
+                  className={`px-4 py-2 text-[10px] sm:text-xs font-mono tracking-widest transition-all duration-300 border ${
+                    activeTab === tab.tag
+                      ? "bg-brand-black border-brand-black text-brand-true-white font-bold"
+                      : "bg-transparent border-brand-black/10 text-brand-black/60 hover:border-brand-black/30 hover:text-brand-black"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {/* Beautiful Real CSS Masonry Columns Layout */}
         <div className="columns-1 sm:columns-2 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
           
           {/* Elegant Uploader Prompt Card in the masonry */}
-          <div 
-            onClick={() => setIsUploadOpen(true)}
-            className="break-inside-avoid mb-6 group flex flex-col justify-center items-center gap-4 border-2 border-dashed border-brand-black/15 hover:border-brand-pink/50 cursor-pointer w-full p-8 aspect-[3/4] bg-brand-white/30 backdrop-blur-sm transition-all duration-500"
-          >
-            <div className="w-12 h-12 rounded-full border border-brand-black/10 flex items-center justify-center text-brand-black/40 group-hover:text-brand-pink group-hover:border-brand-pink/30 group-hover:bg-brand-pink/5 transition-all duration-500">
-              <Plus size={20} className="group-hover:scale-110 transition-transform duration-500" />
+          {!simpleMode && (
+            <div 
+              onClick={() => setIsUploadOpen(true)}
+              className="break-inside-avoid mb-6 group flex flex-col justify-center items-center gap-4 border-2 border-dashed border-brand-black/15 hover:border-brand-pink/50 cursor-pointer w-full p-8 aspect-[3/4] bg-brand-white/30 backdrop-blur-sm transition-all duration-500"
+            >
+              <div className="w-12 h-12 rounded-full border border-brand-black/10 flex items-center justify-center text-brand-black/40 group-hover:text-brand-pink group-hover:border-brand-pink/30 group-hover:bg-brand-pink/5 transition-all duration-500">
+                <Plus size={20} className="group-hover:scale-110 transition-transform duration-500" />
+              </div>
+              <div className="text-center">
+                <span className="font-display font-black text-sm uppercase text-brand-black group-hover:text-brand-pink transition-colors tracking-tight block">
+                  ENVIAR FOTO
+                </span>
+                <span className="text-[10px] font-mono text-brand-black/40 uppercase tracking-widest mt-1 block">
+                  Arraste ou cole links
+                </span>
+              </div>
             </div>
-            <div className="text-center">
-              <span className="font-display font-black text-sm uppercase text-brand-black group-hover:text-brand-pink transition-colors tracking-tight block">
-                ENVIAR FOTO
-              </span>
-              <span className="text-[10px] font-mono text-brand-black/40 uppercase tracking-widest mt-1 block">
-                Arraste ou cole links
-              </span>
-            </div>
-          </div>
+          )}
 
           {/* Active Looks Cards */}
           <AnimatePresence mode="popLayout">
@@ -418,13 +476,15 @@ export const EditorialPhotoGrid = () => {
                   </div>
 
                   {/* Absolute Delete Button for easy management right on grid hover */}
-                  <button
-                    onClick={(e) => handleDeleteLook(look.id, e)}
-                    className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-brand-true-white/95 backdrop-blur-sm flex items-center justify-center text-brand-black/50 hover:text-brand-pink hover:bg-brand-black shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300"
-                    title="Excluir da galeria"
-                  >
-                    <Trash2 size={13} />
-                  </button>
+                  {!simpleMode && (
+                    <button
+                      onClick={(e) => handleDeleteLook(look.id, e)}
+                      className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-brand-true-white/95 backdrop-blur-sm flex items-center justify-center text-brand-black/50 hover:text-brand-pink hover:bg-brand-black shadow-md opacity-0 group-hover:opacity-100 transition-all duration-300"
+                      title="Excluir da galeria"
+                    >
+                      <Trash2 size={13} />
+                    </button>
+                  )}
 
                   {/* Hover action banner */}
                   <div className="absolute inset-0 bg-brand-black/60 md:opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500">
