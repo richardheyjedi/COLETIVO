@@ -41,9 +41,8 @@ export const Contato = () => {
             <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-pink font-bold block mb-8 animate-[fadeIn_1s_ease-out_forwards] opacity-0">
               Connection // Network
             </span>
-            <h1 ref={heroTitleRef} className="font-display font-black text-6xl sm:text-7xl md:text-8xl uppercase tracking-tighter mb-16">
-              Inicie \ <br/>
-              <span className="italic font-light lowercase font-sans text-brand-black/40">o diálogo.</span>
+            <h1 ref={heroTitleRef} className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-[1.05] mb-12">
+              Inicie \ <span className="italic font-light lowercase font-sans text-brand-pink block sm:inline">o diálogo.</span>
             </h1>
 
             <div className="flex flex-col gap-10 animate-[fadeIn_1s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.4s' }}>

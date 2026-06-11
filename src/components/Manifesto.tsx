@@ -114,10 +114,10 @@ export const Manifesto = () => {
               ref={titleWrapperRef}
               className="flex flex-col items-center text-center"
             >
-              <span className="text-[10px] font-mono uppercase tracking-[0.6em] text-brand-pink font-bold mb-8 opacity-0 animate-[fadeIn_1s_ease-out_forwards]">Nossa Essência</span>
-              <h2 ref={titleRef} className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl uppercase tracking-tighter leading-[0.85] text-brand-true-white perspective-1000">
-                Somos o eco<br/>
-                <span className="font-sans font-light lowercase tracking-normal text-brand-pink italic">das ruas.</span>
+              <span className="text-[10px] font-mono uppercase tracking-[0.6em] text-brand-pink font-bold mb-8 opacity-0 animate-[fadeIn_1s_ease-out_forwards]">O Nosso Manifesto</span>
+              <h2 ref={titleRef} className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-[1.05] text-brand-true-white perspective-1000 max-w-5xl">
+                Marcas não crescem{" "}
+                <span className="font-sans font-light lowercase tracking-normal text-brand-pink italic block sm:inline">sozinhas.</span>
               </h2>
             </div>
           </div>
@@ -130,10 +130,13 @@ export const Manifesto = () => {
             >
               <div className="w-12 h-[1px] bg-brand-pink" />
               <h3 className="font-display font-bold text-3xl md:text-4xl uppercase tracking-tighter text-brand-true-white leading-tight">
-                Design como<br/>ferramenta de<br/>resistência.
+                Acreditamos que<br/>grandes marcas não crescem apenas<br/>com bons produtos.
               </h3>
-              <p className="text-sm md:text-base font-medium uppercase tracking-[0.2em] text-brand-true-white/50 leading-loose">
-                Não seguimos calendários. Seguimos pulsos. O Cøletivo nasceu da necessidade de materializar o invisível — o sentimento que nasce nas bordas e conquista os centros.
+              <p className="text-sm md:text-base font-medium tracking-wide text-brand-true-white/50 leading-relaxed">
+                Elas crescem com estratégia.<br/>
+                Com posicionamento.<br/>
+                Com relacionamento.<br/>
+                Com execução.
               </p>
             </div>
           </div>
@@ -149,8 +152,8 @@ export const Manifesto = () => {
                 <span className="font-mono text-[8px] opacity-40 uppercase tracking-widest leading-none mt-1">Status: Original</span>
               </div>
 
-              <p className="text-xl md:text-3xl font-sans font-light italic leading-relaxed text-brand-true-white/80 mb-12">
-                "Acreditamos que cada textura, cada corte e cada fibra carrega uma história que merece ser contada. No Cøletivo, a moda é o museu e o seu corpo é a exposição viva."
+              <p className="text-xl md:text-2xl font-sans font-light italic leading-relaxed text-brand-true-white/80 mb-12">
+                "Todos os dias conectamos marcas, lojistas, representantes, fábricas e consumidores através de um ecossistema construído para gerar crescimento sustentável."
               </p>
 
               <div className="flex flex-col gap-6">
@@ -158,7 +161,10 @@ export const Manifesto = () => {
                   <div className="w-8 h-8 rounded-full bg-brand-true-white flex items-center justify-center">
                     <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse" />
                   </div>
-                  <span className="text-[10px] uppercase tracking-[0.4em] font-bold">Transmissão em Tempo Real</span>
+                  <span className="text-[10px] uppercase tracking-[0.3em] font-bold">
+                    Somos gestão. Somos representação.<br/>Somos expansão. Somos inteligência.<br/>
+                    <span className="text-[14px] text-brand-black mt-2 block">Somos CØLETIVO.</span>
+                  </span>
                 </div>
                 
                 <div className="grid grid-cols-3 gap-4 border-t border-brand-true-white/10 pt-8 mt-4 uppercase font-bold text-[8px] tracking-[0.5em] opacity-40">

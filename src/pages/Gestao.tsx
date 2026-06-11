@@ -29,29 +29,30 @@ export const Gestao = () => {
           <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-green font-bold block mb-8 animate-[fadeIn_1s_ease-out_forwards] opacity-0">
             Consulting // Operations
           </span>
-          <h1 ref={heroTitleRef} className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.85] tracking-tighter uppercase text-brand-black mb-12">
-            Organizamos o caos.<br />
-            <span className="font-sans font-light italic lowercase text-brand-black/40 tracking-normal border-b-2 border-brand-green">Escalamos o lucro.</span>
+          <h1 ref={heroTitleRef} className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tighter uppercase text-brand-black mb-12">
+            Estratégia para marcas{" "}
+            <span className="font-sans font-light italic lowercase text-brand-black/40 tracking-normal border-b-2 border-brand-green block sm:inline">que querem crescer.</span>
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 animate-[fadeIn_1s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.4s' }}>
             <div></div>
-            <p className="text-sm md:text-base font-medium uppercase tracking-[0.2em] text-brand-black/60 leading-loose">
-              A criatividade precisa de estrutura. Nossa área de gestão e consultoria implementa processos, avalia o modelo de negócios e cria a fundação técnica para que a sua estética possa prosperar no mercado real.
+            <p className="text-sm md:text-base font-medium uppercase tracking-[0.15em] text-brand-black/60 leading-loose">
+              Atuamos de forma integrada nas áreas de gestão comercial, expansão nacional, posicionamento de marca, inteligência digital, inside sales, formação de equipes comerciais, mix de produtos, engenharia de produto, precificação e planejamento estratégico.<br/><br/>
+              <span className="text-brand-black font-bold">Nosso objetivo é transformar marcas em operações sólidas, escaláveis e preparadas para crescer.</span>
             </p>
           </div>
         </div>
       </section>
 
       {/* Services */}
-      <section className="px-6 lg:px-12 xl:px-24 py-24 md:py-32 bg-brand-true-black text-brand-true-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-display font-black text-4xl md:text-6xl uppercase tracking-tighter mb-20 text-brand-true-white">Vértices da <span className="text-brand-green italic">Operação</span></h2>
+      <section className="px-6 lg:px-12 xl:px-24 py-24 md:py-32 bg-brand-true-black text-brand-true-white overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="font-display font-black text-4xl md:text-5xl uppercase tracking-tighter mb-20 text-brand-true-white">Pilares de <span className="text-brand-green italic lowercase font-sans font-light">crescimento</span></h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:gap-10 xl:gap-16">
             {[
-              { n: "01", t: "Estratégia de Negócios", d: "Modelagem financiera, pricing, projeção de fluxo de caixa e reestruturação comercial para marcas em crescimento." },
-              { n: "02", t: "Governança & Processos", d: "Mapeamento de processos internos, criação de manuais operacionais e implementação de cultura organizacional forte." },
-              { n: "03", t: "Supply & Produção", d: "Consultoria em cadeia de suprimentos, negociação com fornecedores têxteis e parceiros de produção, visando qualidade e margem." }
+              { n: "01", t: "Gestão de Marcas", d: "Atuamos de forma integrada para transformar marcas em operações sólidas, escaláveis e preparadas para crescer com estruturação completa e visão de mercado." },
+              { n: "02", t: "Licenciamento e Desenvolvimento", d: "Atuamos como agentes estratégicos no desenvolvimento e expansão de marcas. Conectamos marcas a indústrias parceiras, estruturamos projetos de licenciamento e criamos caminhos para crescimento sustentável através de produção, distribuição e desenvolvimento de produto." },
+              { n: "03", t: "Inteligência Digital", d: "Nossa equipe de inteligência digital auxilia marcas na construção de estratégias mais eficientes através da análise de mercado, comportamento de consumo, posicionamento e oportunidades de crescimento." }
             ].map((srv, i) => (
               <div key={i} className="flex flex-col gap-6 relative group">
                 <div className="absolute -top-10 -left-6 text-9xl font-display font-black text-brand-true-white opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500 pointer-events-none select-none z-0">

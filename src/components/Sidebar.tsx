@@ -42,7 +42,7 @@ export const Sidebar = () => {
             key={i}
             to={link.href} 
             onClick={() => setIsOpen(false)}
-            className="group py-3 flex items-center justify-between text-[11px] uppercase tracking-[0.25em] font-bold text-brand-black/60 hover:text-brand-black transition-all duration-300 border-b border-brand-black/5 last:border-0"
+            className="group py-4 flex items-center justify-between text-[11px] uppercase tracking-[0.25em] font-bold text-brand-black/60 hover:text-brand-black transition-all duration-300 border-b border-brand-black/5 last:border-0"
           >
             <div className="flex items-center gap-4">
               <div className={`w-[2px] h-0 group-hover:h-3 ${BRAND_COLORS[i % BRAND_COLORS.length]} transition-all duration-300`} />

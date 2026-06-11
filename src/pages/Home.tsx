@@ -2,6 +2,7 @@ import { Hero } from "../components/Hero";
 import { Partners } from "../components/Partners";
 import { Manifesto } from "../components/Manifesto";
 import { DropShowcase } from "../components/DropShowcase";
+import { EditorialPhotoGrid } from "../components/EditorialPhotoGrid";
 import { Lifestyle } from "../components/Lifestyle";
 import { SocialProof } from "../components/SocialProof";
 import { BrandValues } from "../components/BrandValues";
@@ -13,6 +14,7 @@ export const Home = () => {
       <Partners />
       <Manifesto />
       <DropShowcase />
+      <EditorialPhotoGrid />
       <SocialProof />
       <BrandValues />
       <Lifestyle />

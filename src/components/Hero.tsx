@@ -26,17 +26,6 @@ export const Hero = () => {
       .fromTo(ctaRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, 1.5);
 
     // Parallax on scroll
-    gsap.to(textRef.current, {
-      yPercent: 40,
-      ease: "none",
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true,
-      }
-    });
-
     gsap.to(imageWrapperRef.current, {
       yPercent: 15,
       scale: 1.05,
@@ -57,7 +46,7 @@ export const Hero = () => {
   return (
     <section 
       ref={containerRef}
-      className="relative min-h-[90vh] md:h-screen flex items-center justify-center overflow-hidden bg-brand-white pt-32 md:pt-0"
+      className="relative min-h-[92vh] lg:h-screen flex items-center justify-center overflow-hidden bg-brand-white pt-28 pb-12 md:py-0"
     >
       {/* Background Semantic Grid */}
       <div className="absolute inset-0 grid-bg opacity-40 z-0" />
@@ -82,7 +71,7 @@ export const Hero = () => {
           {/* Top Label */}
           <div
             ref={labelRef}
-            className="flex items-center gap-4 mb-8"
+            className="flex items-center gap-4 mb-4 md:mb-6"
           >
             <span className="w-8 h-[1px] bg-brand-black/20" />
             <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-brand-black/40">
@@ -98,17 +87,17 @@ export const Hero = () => {
           >
             <h1 
               ref={titleRef}
-              className="font-display font-black text-5xl sm:text-7xl md:text-8xl lg:text-9xl leading-[0.85] tracking-tighter uppercase mb-2 text-brand-black perspective-1000"
+              className="font-display font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight md:leading-[1.1] tracking-tighter uppercase mb-4 md:mb-6 text-brand-black perspective-1000 max-w-4xl text-center"
             >
-              Expressø<br/>
-              <span className="font-sans font-light lowercase tracking-widest text-brand-pink block -mt-2 md:-mt-6 mr-1 md:mr-12 text-right text-4xl sm:text-5xl md:text-6xl">
-                Collective
+              O maior hub de streetwear, negócios e marcas{" "}
+              <span className="font-sans font-light lowercase tracking-widest text-brand-pink block mt-2 text-xl sm:text-3xl md:text-4xl lg:text-5xl">
+                do Sul do país.
               </span>
             </h1>
 
             {/* Float Floating Element (Asterisk) */}
             <div 
-              className="absolute -top-10 -right-10 md:-top-20 md:-right-20 w-24 h-24 md:w-40 md:h-40 text-brand-pink opacity-20 pointer-events-none animate-[spin_20s_linear_infinite]"
+              className="absolute -top-10 -right-10 md:-top-16 md:-right-16 w-20 h-20 md:w-32 md:h-32 text-brand-pink opacity-20 pointer-events-none animate-[spin_20s_linear_infinite]"
             >
               <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-1">
                 <path d="M50,10 L50,90 M10,50 L90,50 M20,20 L80,80 M80,20 L20,80" />
@@ -119,18 +108,26 @@ export const Hero = () => {
           {/* Bottom Call to Action */}
           <div
             ref={ctaRef}
-            className="mt-16 flex flex-col items-center"
+            className="mt-6 md:mt-8 flex flex-col items-center"
           >
-            <p className="w-full max-w-lg md:max-w-2xl px-4 text-[10px] sm:text-xs md:text-sm font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em] text-brand-black/60 mb-12">
-              O movimento não para. A moda é apenas o <span className="text-brand-pink italic font-black">veículo</span>. Design contemporâneo brasileiro.
+            <p className="w-full max-w-lg md:max-w-2xl px-4 text-xs sm:text-sm md:text-base font-medium text-brand-black/60 mb-6 md:mb-8 leading-relaxed tracking-wide">
+              Há mais de 20 anos conectando marcas, lojistas, representantes e oportunidades através de uma operação completa de gestão, representação comercial, expansão de mercado e inteligência estratégica.
             </p>
             
-            <button className="relative group overflow-hidden border border-brand-black px-12 py-5 transition-all duration-700 bg-transparent">
-              <div className="absolute inset-0 bg-brand-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
-              <span className="relative z-10 font-bold uppercase tracking-[0.4em] text-[10px] text-brand-black group-hover:text-white transition-colors duration-500">
-                Ver Lançamentos
-              </span>
-            </button>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="relative group overflow-hidden border border-brand-black px-8 py-4 transition-all duration-700 bg-brand-black">
+                <div className="absolute inset-0 bg-brand-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
+                <span className="relative z-10 font-bold uppercase tracking-[0.2em] text-[10px] text-brand-white group-hover:text-brand-black transition-colors duration-500">
+                  CONHEÇA NOSSO ECOSSISTEMA
+                </span>
+              </button>
+              <button className="relative group overflow-hidden border border-brand-pink bg-transparent px-8 py-4 transition-all duration-700">
+                <div className="absolute inset-0 bg-brand-pink translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
+                <span className="relative z-10 font-bold uppercase tracking-[0.2em] text-[10px] text-brand-pink group-hover:text-brand-white transition-colors duration-500">
+                  FALE COM UM ESPECIALISTA
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </div>

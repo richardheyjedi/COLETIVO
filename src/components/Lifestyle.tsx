@@ -75,8 +75,8 @@ export const Lifestyle = () => {
               className="flex flex-col"
             >
               <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-black font-bold mb-8 italic">The Scene // Local Culture</span>
-              <h2 className="font-display font-black text-5xl sm:text-6xl md:text-7xl uppercase tracking-tighter leading-[0.8] mb-8 text-brand-black relative">
-                Mais que uma <span className="font-sans font-light italic lowercase tracking-normal">marca.</span><br />
+              <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl uppercase tracking-tighter leading-[1.05] mb-8 text-brand-black relative">
+                Mais que uma <span className="font-sans font-light italic lowercase tracking-normal text-brand-pink block sm:inline">marca.</span>{" "}
                 <span className="opacity-10 outline-text !-webkit-text-stroke-brand-black">Uma cena.</span>
                 
                 {/* Decorative Scribble Underline */}

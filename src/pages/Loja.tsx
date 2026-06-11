@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
 import { ArrowUpRight } from "lucide-react";
 import { DropShowcase } from "../components/DropShowcase";
+import { EditorialPhotoGrid } from "../components/EditorialPhotoGrid";
 
 export const Loja = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,11 +29,12 @@ export const Loja = () => {
           <span className="text-[10px] font-mono uppercase tracking-[0.6em] text-brand-orange font-bold block mb-4 animate-[fadeIn_1s_ease-out_forwards] opacity-0">
             Retail // E-commerce
           </span>
-          <h1 ref={heroTitleRef} className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.85] tracking-tighter uppercase text-brand-black mb-8">
-            Curadoria <br/><span className="text-brand-orange italic">Implacável.</span>
+          <h1 ref={heroTitleRef} className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tighter uppercase text-brand-black mb-12">
+            Curadoria de quem <span className="text-brand-orange italic block sm:inline">vive o mercado.</span>
           </h1>
-          <p className="max-w-xl text-xs md:text-sm uppercase tracking-widest text-brand-black/60 font-medium leading-loose animate-[fadeIn_1s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.4s' }}>
-            Não somos um catálogo. Somos um manifesto vestível. Cada peça selecionada ou produzida pelo Cøletivo representa atitude, design técnico e durabilidade urbana.
+          <p className="max-w-2xl text-sm md:text-base uppercase tracking-[0.15em] text-brand-black/60 font-semibold leading-relaxed animate-[fadeIn_1s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.4s' }}>
+            Nossa loja reúne marcas selecionadas que representam a essência da cultura streetwear contemporânea.<br/><br/>
+            Uma curadoria construída a partir da experiência de quem acompanha diariamente as transformações do mercado, do comportamento e do consumo.
           </p>
         </div>
       </section>
@@ -44,7 +46,7 @@ export const Loja = () => {
       <section className="px-6 lg:px-12 xl:px-24 py-24 md:py-32 bg-brand-orange text-brand-white">
         <div className="max-w-6xl mx-auto flex flex-col gap-16">
           <h2 className="font-display font-black text-3xl md:text-5xl uppercase tracking-tighter">Nossas Linhas</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { t: "Apparel", d: "Camisetas pesadas, moletons estruturados e outerwear de alta performance." },
               { t: "Footwear", d: "Sneakers selecionados, parcerias exclusivas e silhuetas que definem a cultura." },
@@ -58,6 +60,9 @@ export const Loja = () => {
           </div>
         </div>
       </section>
+
+      {/* Interactive Gallery */}
+      <EditorialPhotoGrid />
 
       <section className="py-24 md:py-40 bg-brand-white text-center flex flex-col items-center justify-center px-6">
         <h2 className="font-display font-black text-4xl md:text-6xl uppercase tracking-tighter mb-8 text-brand-black">

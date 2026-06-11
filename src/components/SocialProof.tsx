@@ -91,14 +91,14 @@ export const SocialProof = () => {
     <section ref={containerRef} className="py-24 md:py-40 bg-brand-true-black">
       <div className="container mx-auto px-6 lg:px-12 xl:px-24">
         {/* Title Stack */}
-        <div className="flex flex-col mb-24">
+        <div className="flex flex-col mb-16">
            <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-pink font-bold mb-6 italic">// Social Recognition</span>
            <h2 
             ref={titleRef}
-            className="font-display font-black text-5xl sm:text-7xl md:text-8xl xl:text-9xl uppercase tracking-tighter leading-[0.8] text-brand-true-white/0"
+            className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-[1.05] text-brand-true-white"
           >
-            Quem <span className="font-sans font-light italic lowercase tracking-normal text-brand-true-white">vive</span><br/>
-            <span className="opacity-10 outline-text !-webkit-text-stroke-brand-true-white">a cultura.</span>
+            Quem <span className="font-sans font-light italic lowercase tracking-normal text-brand-pink">vive</span>{" "}
+            a cultura.
           </h2>
         </div>
 

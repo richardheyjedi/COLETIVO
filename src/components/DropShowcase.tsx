@@ -110,8 +110,8 @@ export const DropShowcase = () => {
              <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-pink font-bold block mb-6 opacity-0 animate-[fadeIn_1s_ease-out_forwards]">
               Current Release // Vol. 01
             </span>
-            <h2 ref={titleRef} className="font-display font-black text-5xl sm:text-7xl md:text-8xl uppercase tracking-tighter leading-[0.8] text-brand-black">
-              The <span className="font-sans font-light italic lowercase tracking-normal">Archive</span> Collection
+            <h2 ref={titleRef} className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-[1.05] text-brand-black">
+              The <span className="font-sans font-light italic lowercase tracking-normal text-brand-pink">Archive</span> Collection
             </h2>
           </div>
           

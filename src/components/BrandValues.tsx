@@ -76,18 +76,18 @@ export const BrandValues = () => {
       <div className="container mx-auto px-6 lg:px-12 xl:px-24">
         <div className="flex flex-col mb-32 items-center text-center">
           <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-pink font-bold mb-8 italic">// Nossos Pilares</span>
-          <h2 ref={titleRef} className="font-display font-black text-5xl sm:text-7xl md:text-8xl uppercase tracking-tighter leading-none text-brand-black max-w-4xl">
-            Fundamentos <br />
-            <span className="text-brand-pink italic">Criativos.</span>
+          <h2 ref={titleRef} className="font-display font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl uppercase tracking-tighter leading-[1.05] text-brand-black max-w-4xl">
+            Fundamentos{" "}
+            <span className="text-brand-pink italic block sm:inline">Criativos.</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-6 xl:gap-6 2xl:gap-8">
           {VALUES.map((v, index) => (
             <div
               key={index}
               ref={el => cardsRef.current[index] = el}
-              className="flex flex-col gap-8 group relative p-6 xl:p-8 border border-brand-black/5 hover:border-brand-black transition-all duration-500 bg-brand-white"
+              className="flex flex-col gap-4 sm:gap-6 group relative p-6 sm:p-8 lg:p-5 xl:p-6 2xl:p-8 border border-brand-black/5 hover:border-brand-black transition-all duration-500 bg-brand-white"
             >
               {/* Decorative Brand Scribble bg */}
               <div className={`absolute -top-10 -right-10 w-32 h-32 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none ${BRAND_ACCENT_COLORS[index % BRAND_ACCENT_COLORS.length]}`}>
@@ -114,7 +114,7 @@ export const BrandValues = () => {
               </div>
 
               <div className="flex flex-col relative z-10">
-                <div className="flex justify-between items-start mb-12">
+                <div className="flex justify-between items-start mb-6 sm:mb-8 md:mb-10">
                   <span className={`font-mono text-[10px] font-bold ${BRAND_ACCENT_COLORS[index % BRAND_ACCENT_COLORS.length]}`}>
                     // 0{index + 1}
                   </span>
@@ -129,12 +129,12 @@ export const BrandValues = () => {
                   </div>
                 </div>
 
-                <h3 className="font-display font-black text-2xl lg:text-lg xl:text-xl 2xl:text-2xl uppercase tracking-tighter text-brand-black group-hover:text-brand-pink transition-colors duration-500 mb-6 font-bold break-words">
+                <h3 className="font-display font-black text-xl sm:text-2xl md:text-2xl lg:text-lg xl:text-[22px] 2xl:text-3xl uppercase tracking-tighter text-brand-black group-hover:text-brand-pink transition-colors duration-500 mb-4 font-bold leading-none break-words">
                   {v.title}
                 </h3>
               </div>
 
-              <p className="text-brand-black/50 text-[11px] uppercase tracking-widest leading-loose font-medium relative z-10">
+              <p className="text-brand-black/50 text-[10px] sm:text-[11px] uppercase tracking-widest leading-loose font-medium relative z-10">
                 {v.desc}
               </p>
               

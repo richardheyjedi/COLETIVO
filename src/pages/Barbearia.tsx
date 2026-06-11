@@ -51,11 +51,11 @@ export const Barbearia = () => {
           <span className="text-[10px] font-mono uppercase tracking-[0.6em] text-brand-pink font-bold block mb-4 fade-up opacity-0">
             Grooming & Lifestyle
           </span>
-          <h1 ref={heroTitleRef} className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.85] tracking-tighter uppercase text-brand-true-white mb-12">
-            A arte do <br/><span className="italic font-light lowercase font-sans text-brand-true-white">alinhamento.</span>
+          <h1 ref={heroTitleRef} className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tighter uppercase text-brand-true-white mb-12">
+            Estilo faz parte <span className="italic font-light lowercase font-sans text-brand-pink block sm:inline">da experiência.</span>
           </h1>
           <p className="max-w-xl text-xs md:text-sm uppercase tracking-widest text-brand-true-white/60 font-medium leading-loose fade-up opacity-0">
-            Reinventamos a barbearia clássica. Um ambiente focado na precisão, conforto e na estética urbana. Seu momento, nosso compromisso.
+            A barbearia da CØLETIVO oferece atendimento especializado em um ambiente que valoriza cuidado, identidade e relacionamento através de experiências conectadas ao lifestyle urbano.
           </p>
         </div>
       </section>

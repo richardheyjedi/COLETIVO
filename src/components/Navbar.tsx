@@ -27,7 +27,7 @@ export const Navbar = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-0 left-0 md:left-64 right-0 z-50 px-6 py-4 md:px-12 flex justify-between items-center border-b border-brand-black/10 bg-brand-white/95 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.02)]"
+      className="fixed top-0 left-0 md:left-64 right-0 z-50 pl-6 pr-20 py-4 md:px-12 flex justify-between items-center border-b border-brand-black/10 bg-brand-white/95 backdrop-blur-md shadow-[0_4px_24px_rgba(0,0,0,0.02)] h-20 md:h-auto"
     >
       <Link to="/" className="flex items-center gap-10 group cursor-pointer text-brand-black md:hidden">
         <div className="flex flex-col">

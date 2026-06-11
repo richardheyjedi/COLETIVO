@@ -40,13 +40,19 @@ export const Representacao = () => {
           <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-pink font-bold block mb-8 fade-up opacity-0">
             Cøletivo // Representação_Comercial
           </span>
-          <h1 ref={heroTitleRef} className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.85] tracking-tighter uppercase text-brand-black mb-12">
-            Expandimos mercados.<br />
-            <span className="font-sans font-light italic lowercase text-brand-black/40 tracking-normal border-b-2 border-brand-pink">Ampliamos o impacto.</span>
+          <h1 ref={heroTitleRef} className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tighter uppercase text-brand-black mb-12">
+            Conectando as principais marcas de{" "}
+            <span className="font-sans font-light italic lowercase text-brand-black/40 tracking-normal border-b-2 border-brand-pink block sm:inline">streetwear ao mercado.</span>
           </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16 fade-up opacity-0">
-            <p className="text-sm md:text-base font-medium uppercase tracking-[0.2em] text-brand-black/60 leading-loose col-start-1 md:col-start-2">
-              Atuamos como um braço estratégico focado na expansão comercial e posicionamento de mercado. Não apenas vendemos produtos, mas construímos autoridade de marca.
+            <div className="flex flex-col gap-6">
+              <span className="font-display font-bold text-lg uppercase tracking-tighter text-brand-black">Marcas Representadas</span>
+              <p className="text-xs uppercase tracking-[0.1em] text-brand-black/50 leading-relaxed font-bold">
+                Approve, Decente Máfia, Bem Bolado, Sopro, TUG9, Dubs, Prison, Desprezo, e outras marcas.
+              </p>
+            </div>
+            <p className="text-sm md:text-base font-medium uppercase tracking-[0.15em] text-brand-black/60 leading-loose">
+              A CØLETIVO opera uma das maiores estruturas de representação especializada em streetwear do Sul do país. Atuamos nos estados do Rio Grande do Sul, Santa Catarina e Paraná através de uma rede consolidada de representantes, prepostos e parceiros comerciais. Nosso trabalho vai além da venda. Construímos relacionamentos duradouros entre marcas e lojistas, gerando crescimento consistente e oportunidades de expansão.
             </p>
           </div>
         </div>
@@ -60,17 +66,17 @@ export const Representacao = () => {
             <div className="w-16 h-[2px] bg-brand-pink" />
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
             {[
               { i: <Target size={24} />, t: "Posicionamento", d: "Colocamos sua marca nos canais e prateleiras certas, atraindo o público ideal." },
               { i: <Activity size={24} />, t: "Resultados Ativos", d: "Gestão comercial com foco em metas escaláveis e tráfego qualificado de vendas." },
               { i: <Zap size={24} />, t: "Agilidade", d: "Conexões diretas e networking consolidado que aceleram a entrada no mercado." },
               { i: <TrendingUp size={24} />, t: "Crescimento", d: "Análise de dados constante para otimizar conversões e expandir a atuação." }
             ].map((b, i) => (
-              <div key={i} className="p-8 border border-brand-true-white/10 flex flex-col gap-6 fade-up hover:border-brand-pink transition-colors duration-300">
+              <div key={i} className="p-6 sm:p-8 lg:p-5 xl:p-6 2xl:p-8 border border-brand-true-white/10 flex flex-col gap-4 sm:gap-6 fade-up hover:border-brand-pink transition-colors duration-300">
                 <div className="text-brand-pink">{b.i}</div>
-                <h3 className="font-display font-bold text-xl uppercase tracking-tighter">{b.t}</h3>
-                <p className="text-xs uppercase tracking-widest text-brand-true-white/50 leading-relaxed">{b.d}</p>
+                <h3 className="font-display font-bold text-lg sm:text-xl uppercase tracking-tighter break-words leading-tight">{b.t}</h3>
+                <p className="text-[10px] sm:text-xs uppercase tracking-widest text-brand-true-white/50 leading-relaxed">{b.d}</p>
               </div>
             ))}
           </div>

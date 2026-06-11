@@ -34,34 +34,44 @@ export const Studio = () => {
           <div className="flex items-center gap-4 animate-[fadeIn_1s_ease-out_forwards] opacity-0">
             <div className="w-3 h-3 bg-brand-purple rounded-full animate-pulse" />
             <span className="text-[10px] font-mono uppercase tracking-[0.6em] text-brand-purple font-bold block">
-              Creative // Engine
+              Nosso Espaço // Estúdio
             </span>
           </div>
-          <h1 ref={heroTitleRef} className="font-display font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[0.85] tracking-tighter uppercase text-brand-true-white">
-            Produzindo <br/><span className="text-brand-purple italic lowercase font-sans font-light">A estética.</span>
+          <h1 ref={heroTitleRef} className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tighter uppercase text-brand-true-white">
+            Criatividade <span className="text-brand-purple italic lowercase font-sans font-light block sm:inline">em movimento.</span>
           </h1>
-          <p className="max-w-xl text-xs md:text-sm uppercase tracking-widest text-brand-true-white/60 font-medium leading-loose animate-[fadeIn_1s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.4s' }}>
-            Onde a cultura urbana se encontra com o design hiper-minimalista. Nosso estúdio criativo funciona como um laboratório de narrativas visuais para marcas que querem impactar.
+          <p className="max-w-2xl text-sm md:text-base uppercase tracking-[0.15em] text-brand-true-white/60 font-semibold leading-relaxed animate-[fadeIn_1s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.4s' }}>
+            O estúdio da CØLETIVO é um espaço dedicado à música, produção e desenvolvimento criativo.<br/><br/>
+            Além de receber artistas e projetos culturais, também oferece formação para DJs e profissionais que desejam aprofundar seus conhecimentos em mixagem e produção musical.
           </p>
         </div>
       </section>
 
-      {/* Services */}
+      {/* Showroom & Gourmet */}
       <section className="px-6 lg:px-12 xl:px-24 py-24 md:py-32 bg-brand-true-black border-t border-brand-true-white/10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-            {[
-              { i: <Camera size={32} />, t: "Fotografia", d: "Editoriais de moda, still para e-commerce, lookbooks e campanhas conceituais." },
-              { i: <Video size={32} />, t: "Filme", d: "Produção audiovisual, fashion films, pílulas para redes e documentários curtos." },
-              { i: <PenTool size={32} />, t: "Identidade Visual", d: "Branding, design de logo, tipografia customizada e manual da marca." },
-              { i: <Aperture size={32} />, t: "Direção de Arte", d: "Set design, styling, curadoria artística e viabilização criativa completa." }
-            ].map((srv, i) => (
-              <div key={i} className="flex flex-col gap-6 group">
-                <div className="text-brand-true-white/30 group-hover:text-brand-purple transition-colors duration-500">{srv.i}</div>
-                <h3 className="font-display font-bold text-2xl uppercase tracking-tighter text-brand-true-white group-hover:text-brand-purple transition-colors">{srv.t}</h3>
-                <p className="text-xs uppercase tracking-widest leading-loose font-medium opacity-50">{srv.d}</p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16">
+            
+            {/* Showroom */}
+            <div className="flex flex-col gap-6 group border border-brand-true-white/10 p-10 hover:border-brand-purple transition-colors duration-500">
+              <span className="text-[10px] uppercase font-mono tracking-widest text-brand-true-white/30 group-hover:text-brand-purple transition-colors">Showroom</span>
+              <h3 className="font-display font-bold text-3xl uppercase tracking-tighter text-brand-true-white group-hover:text-brand-purple transition-colors">Onde os negócios acontecem.</h3>
+              <p className="text-xs uppercase tracking-[0.1em] leading-loose font-semibold opacity-60">
+                Nosso showroom foi criado para proporcionar experiências que aproximam marcas e lojistas.<br/><br/>
+                Um ambiente pensado para apresentar coleções, fortalecer relacionamentos, gerar oportunidades comerciais e criar conexões de longo prazo.
+              </p>
+            </div>
+
+            {/* Gourmet */}
+            <div className="flex flex-col gap-6 group border border-brand-true-white/10 p-10 hover:border-brand-purple transition-colors duration-500">
+              <span className="text-[10px] uppercase font-mono tracking-widest text-brand-true-white/30 group-hover:text-brand-purple transition-colors">Área Gourmet / Relacionamento</span>
+              <h3 className="font-display font-bold text-3xl uppercase tracking-tighter text-brand-true-white group-hover:text-brand-purple transition-colors">Relacionamentos que geram negócios.</h3>
+              <p className="text-xs uppercase tracking-[0.1em] leading-loose font-semibold opacity-60">
+                Dentro do nosso showroom criamos um ambiente pensado para receber clientes, parceiros e marcas.<br/><br/>
+                Um espaço onde gastronomia, networking e negócios acontecem de forma natural, fortalecendo conexões e criando novas oportunidades.
+              </p>
+            </div>
+
           </div>
         </div>
       </section>

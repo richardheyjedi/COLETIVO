@@ -1,1 +1,6 @@
-{"name":"CØLETIVO","description":"Landing page premium de marca streetwear brasileira com estética editorial e cultura urbana.","requestFramePermissions":[],"majorCapabilities":[]}
+{
+  "name": "CØLETIVO",
+  "description": "Landing page premium de marca streetwear brasileira com estética editorial e cultura urbana.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
