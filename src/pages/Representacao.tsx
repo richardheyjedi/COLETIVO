@@ -1,36 +1,24 @@
 import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
 import { ArrowUpRight, Target, Activity, Zap, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Partners } from "../components/Partners";
+import { useFadeUpAnimation } from "../hooks/useFadeUpAnimation";
+import { useHeroTitleAnimation } from "../hooks/useHeroTitleAnimation";
 
 export const Representacao = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
 
-  useGSAP(() => {
-    if (!containerRef.current) return;
+  // Apply premium title entry animation
+  useHeroTitleAnimation(heroTitleRef, containerRef, {
+    splitType: "lines,words,chars",
+    animateTarget: "chars",
+    delay: 0.2,
+    staggerAmount: 0.8,
+  });
 
-    if (heroTitleRef.current) {
-      const splitTitle = new SplitType(heroTitleRef.current, { types: 'lines,words' });
-      gsap.fromTo(splitTitle.words,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, stagger: 0.05, duration: 1.2, ease: "power4.out", delay: 0.2 }
-      );
-    }
-    
-    gsap.utils.toArray('.fade-up').forEach((el: any) => {
-      gsap.fromTo(el, 
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1, y: 0, duration: 1, ease: "power3.out",
-          scrollTrigger: { trigger: el, start: "top 80%" }
-        }
-      );
-    });
-
-  }, { scope: containerRef });
+  // Shared scroll-triggered fade-up for all .fade-up elements
+  useFadeUpAnimation(containerRef);
 
   return (
     <div ref={containerRef} className="bg-brand-white text-brand-black pt-32">
@@ -57,6 +45,8 @@ export const Representacao = () => {
           </div>
         </div>
       </section>
+
+      <Partners />
 
       {/* Benefits */}
       <section className="px-6 lg:px-12 xl:px-24 py-24 md:py-32 bg-brand-true-black text-brand-true-white">
@@ -115,7 +105,7 @@ export const Representacao = () => {
         <p className="text-xs font-mono uppercase tracking-[0.2em] mb-12 fade-up opacity-70">Aumente o alcance e os resultados da sua marca.</p>
         <Link to="/contato" className="fade-up group relative overflow-hidden border border-brand-white px-12 py-5 transition-all duration-700 hover:bg-brand-white hover:text-brand-purple">
           <div className="relative z-10 flex items-center gap-4 transition-colors duration-500">
-            <span className="text-xs uppercase font-bold tracking-[0.3em]">Solicite uma Proposta</span>
+            <span className="text-xs uppercase font-bold tracking-[0.3em]">FALE CONOSCO</span>
             <ArrowUpRight size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
           </div>
         </Link>

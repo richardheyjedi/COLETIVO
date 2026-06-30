@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
+import { useHeroTitleAnimation } from "../hooks/useHeroTitleAnimation";
 
 export const Manifesto = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -11,6 +11,14 @@ export const Manifesto = () => {
   const bgTextRef = useRef<HTMLSpanElement>(null);
   const textContentRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  // Apply premium title entry animation at top level
+  useHeroTitleAnimation(titleRef, sectionRef, {
+    splitType: "lines,words,chars",
+    animateTarget: "chars",
+    delay: 0.15,
+    staggerAmount: 0.8,
+  });
 
   useGSAP(() => {
     if (!sectionRef.current) return;
@@ -37,26 +45,6 @@ export const Manifesto = () => {
       repeat: -1,
       ease: "sine.inOut"
     });
-
-    if (titleRef.current) {
-      const splitTitle = new SplitType(titleRef.current, { types: 'lines,words,chars' });
-      gsap.fromTo(splitTitle.chars, 
-        { opacity: 0, y: 30, rotateX: -90 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          rotateX: 0, 
-          stagger: 0.05, 
-          duration: 1, 
-          ease: "back.out(1.7)",
-          scrollTrigger: {
-            trigger: titleWrapperRef.current,
-            start: "top 80%",
-            toggleActions: "play none none reverse"
-          }
-        }
-      );
-    }
 
     gsap.fromTo(textContentRef.current,
       { opacity: 0, x: -50 },
@@ -130,12 +118,12 @@ export const Manifesto = () => {
             >
               <div className="w-12 h-[1px] bg-brand-pink" />
               <h3 className="font-display font-bold text-3xl md:text-4xl uppercase tracking-tighter text-brand-true-white leading-tight">
-                Acreditamos que<br/>grandes marcas não crescem apenas<br/>com bons produtos.
+                Acreditamos que <br className="hidden md:inline"/>grandes marcas não crescem apenas <br className="hidden md:inline"/>com bons produtos.
               </h3>
               <p className="text-sm md:text-base font-medium tracking-wide text-brand-true-white/50 leading-relaxed">
-                Elas crescem com estratégia.<br/>
-                Com posicionamento.<br/>
-                Com relacionamento.<br/>
+                Elas crescem com estratégia. <br className="hidden md:inline"/>
+                Com posicionamento. <br className="hidden md:inline"/>
+                Com relacionamento. <br className="hidden md:inline"/>
                 Com execução.
               </p>
             </div>
@@ -162,8 +150,8 @@ export const Manifesto = () => {
                     <div className="w-2 h-2 bg-brand-purple rounded-full animate-pulse" />
                   </div>
                   <span className="text-[10px] uppercase tracking-[0.3em] font-bold">
-                    Somos gestão. Somos representação.<br/>Somos expansão. Somos inteligência.<br/>
-                    <span className="text-[14px] text-brand-black mt-2 block">Somos CØLETIVO.</span>
+                    Somos gestão. Somos representação.<br className="hidden md:inline"/>Somos expansão. Somos inteligência.<br className="hidden md:inline"/>
+                    <span className="text-[14px] text-brand-true-white mt-2 block">Somos CØLETIVO.</span>
                   </span>
                 </div>
                 

@@ -1,32 +1,26 @@
 import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
 import { ArrowUpRight, Camera, PenTool, Video, Aperture } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useHeroTitleAnimation } from "../hooks/useHeroTitleAnimation";
 
 export const Studio = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
 
-  useGSAP(() => {
-    if (!containerRef.current) return;
-
-    if (heroTitleRef.current) {
-      const splitTitle = new SplitType(heroTitleRef.current, { types: 'lines,words' });
-      gsap.fromTo(splitTitle.words,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, stagger: 0.1, duration: 1.2, ease: "power4.out", delay: 0.1 }
-      );
-    }
-  }, { scope: containerRef });
+  // Apply premium title entry animation
+  useHeroTitleAnimation(heroTitleRef, containerRef, {
+    splitType: "lines,words,chars",
+    animateTarget: "chars",
+    delay: 0.15,
+    staggerAmount: 0.8,
+  });
 
   return (
     <div ref={containerRef} className="bg-brand-true-black text-brand-true-white pt-32">
       {/* Hero */}
       <section className="relative px-6 lg:px-12 xl:px-24 py-24 min-h-[70vh] flex flex-col justify-end overflow-hidden pb-32">
         <div className="absolute inset-0 opacity-30 z-0">
-          <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" alt="Creative Studio" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
+          <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" alt="Creative Studio" loading="lazy" className="w-full h-full object-cover grayscale" referrerPolicy="no-referrer" />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-true-black via-brand-true-black/50 to-transparent" />
         </div>
         
@@ -78,7 +72,7 @@ export const Studio = () => {
 
       {/* Visual Break */}
       <section className="w-full h-[50vh] overflow-hidden relative">
-        <img src="https://images.unsplash.com/photo-1627483296617-640a2bb1fb98?q=80&w=2000&auto=format&fit=crop" className="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-1000" alt="Studio Detail" referrerPolicy="no-referrer" />
+        <img src="https://images.unsplash.com/photo-1627483296617-640a2bb1fb98?q=80&w=2000&auto=format&fit=crop" loading="lazy" className="w-full h-full object-cover grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-1000" alt="Studio Detail" referrerPolicy="no-referrer" />
       </section>
 
       {/* CTA */}

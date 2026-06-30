@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { ArrowRight, Instagram, Twitter, Youtube, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Instagram, Youtube, ArrowUpRight } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -59,13 +59,32 @@ export const Footer = () => {
               </h2>
             </div>
 
-            <div className="mt-24 flex flex-col items-center">
-              <Link to="/contato" className="group relative overflow-hidden border border-brand-true-white px-16 py-6 transition-all duration-700 bg-transparent cursor-pointer">
-                <div className="absolute inset-0 bg-brand-true-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
-                <span className="relative z-10 font-bold uppercase tracking-[0.5em] text-[10px] text-brand-true-white group-hover:text-brand-true-black transition-colors duration-500 flex items-center gap-4">
-                  Entrar em Contato <ArrowUpRight size={14} />
+            <div className="mt-16 flex flex-col sm:flex-row gap-6 justify-center max-w-4xl mx-auto w-full">
+              {/* WhatsApp LOJA */}
+              <a 
+                href="https://wa.me/5554996027635" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 group relative overflow-hidden border border-brand-true-white/10 hover:border-brand-pink p-8 transition-all duration-500 bg-brand-true-white/5 text-center flex flex-col items-center justify-center gap-3 cursor-pointer"
+              >
+                <span className="text-[9px] font-mono uppercase tracking-[0.4em] text-brand-pink font-bold block">// FALE CONOSCO //</span>
+                <span className="relative z-10 font-display font-black uppercase tracking-[0.2em] text-sm text-brand-true-white group-hover:text-brand-pink transition-colors flex items-center gap-2">
+                  WHATSAPP LOJA <ArrowUpRight size={14} />
                 </span>
-              </Link>
+              </a>
+
+              {/* WhatsApp REPRESENTAÇÃO */}
+              <a 
+                href="https://wa.me/5554991410021" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex-1 group relative overflow-hidden border border-brand-true-white/10 hover:border-brand-purple p-8 transition-all duration-500 bg-brand-true-white/5 text-center flex flex-col items-center justify-center gap-3 cursor-pointer"
+              >
+                <span className="text-[9px] font-mono uppercase tracking-[0.4em] text-brand-purple font-bold block">// FALE CONOSCO //</span>
+                <span className="relative z-10 font-display font-black uppercase tracking-[0.2em] text-sm text-brand-true-white group-hover:text-brand-purple transition-colors flex items-center gap-2">
+                  REPRESENTAÇÃO <ArrowUpRight size={14} />
+                </span>
+              </a>
             </div>
           </div>
         )}
@@ -81,18 +100,22 @@ export const Footer = () => {
              <div className="flex flex-col gap-4">
                 <span className="text-[9px] uppercase tracking-widest font-bold text-brand-pink">Navigation</span>
                 <div className="flex flex-col gap-2 text-[10px] uppercase font-bold text-brand-true-white/40">
-                   <Link to="/loja" className="hover:text-brand-true-white transition-colors">Loja</Link>
-                   <Link to="/sobre" className="hover:text-brand-true-white transition-colors">Sobre a Marca</Link>
-                   <Link to="/studio" className="hover:text-brand-true-white transition-colors">Cø. Studio</Link>
-                   <Link to="/barbearia" className="hover:text-brand-true-white transition-colors">Barbearia</Link>
+                    <Link to="/loja" className="hover:text-brand-true-white transition-colors">Loja</Link>
+                    <Link to="/sobre" className="hover:text-brand-true-white transition-colors">Sobre a Marca</Link>
+                    <Link to="/representacao" className="hover:text-brand-true-white transition-colors">Representação</Link>
+                    <Link to="/barbearia" className="hover:text-brand-true-white transition-colors">Barbearia</Link>
+                    <Link to="/studio" className="hover:text-brand-true-white transition-colors">Cø. Studio</Link>
+                    <Link to="/gestao" className="hover:text-brand-true-white transition-colors">Gestão</Link>
+                    <Link to="/contato" className="hover:text-brand-true-white transition-colors">Contato</Link>
                 </div>
              </div>
              <div className="flex flex-col gap-4">
                 <span className="text-[9px] uppercase tracking-widest font-bold text-brand-pink">Social</span>
                 <div className="flex flex-col gap-2 text-[10px] uppercase font-bold text-brand-true-white/40">
-                   <a href="#" className="hover:text-brand-true-white transition-colors">Instagram</a>
+                   <a href="https://www.instagram.com/coletivo_co/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-true-white transition-colors">Instagram</a>
                    <a href="#" className="hover:text-brand-true-white transition-colors">TikTok</a>
                    <a href="#" className="hover:text-brand-true-white transition-colors">Spotify</a>
+                   <a href="https://www.youtube.com/@coletivo.studioCO" target="_blank" rel="noopener noreferrer" className="hover:text-brand-true-white transition-colors">YouTube</a>
                 </div>
              </div>
              <div className="flex flex-col gap-4">
@@ -105,7 +128,7 @@ export const Footer = () => {
           </div>
 
           <div className="flex flex-col items-end gap-2 text-right">
-             <span className="text-[8px] font-mono uppercase tracking-[0.4em] opacity-40">Handcrafted in São Paulo, BR</span>
+             <span className="text-[8px] font-mono uppercase tracking-[0.4em] opacity-40">Handcrafted in Farroupilha, RS</span>
              <span className="text-[8px] font-mono uppercase tracking-[0.4em] opacity-40">&copy; 2024 Digital Rights Reserved</span>
           </div>
         </div>

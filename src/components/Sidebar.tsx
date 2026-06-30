@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Instagram, Twitter, X, Menu } from "lucide-react";
+import { Instagram, Menu, Youtube, Mail, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -8,10 +8,10 @@ export const Sidebar = () => {
 
   const links = [
     { name: "Home", href: "/" },
+    { name: "Loja", href: "/loja" },
     { name: "Sobre a marca", href: "/sobre" },
     { name: "Representação", href: "/representacao" },
     { name: "Barbearia", href: "/barbearia" },
-    { name: "Loja", href: "/loja" },
     { name: "Studio", href: "/studio" },
     { name: "Gestão", href: "/gestao" },
     { name: "Contato", href: "/contato" }
@@ -60,11 +60,14 @@ export const Sidebar = () => {
         <div className="p-6 bg-brand-cream border border-brand-black/5 rounded-sm">
            <span className="text-[8px] font-mono uppercase tracking-widest text-brand-black/40 block mb-4">// Redes_Sociais</span>
            <div className="flex gap-6 text-brand-black">
-              <a href="#" className="hover:text-brand-pink transition-colors">
+              <a href="https://www.instagram.com/coletivo_co/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-pink transition-colors">
                 <Instagram size={18} strokeWidth={2} />
               </a>
-              <a href="#" className="hover:text-brand-purple transition-colors">
-                <Twitter size={18} strokeWidth={2} />
+              <a href="mailto:hello@coletivo.com" className="hover:text-brand-purple transition-colors" title="E-mail">
+                <Mail size={18} strokeWidth={2} />
+              </a>
+              <a href="https://www.youtube.com/@coletivo.studioCO" target="_blank" rel="noopener noreferrer" className="hover:text-brand-pink transition-colors">
+                <Youtube size={18} strokeWidth={2} />
               </a>
            </div>
         </div>
@@ -76,8 +79,8 @@ export const Sidebar = () => {
                CØ-2024
              </div>
           </div>
-          <div className="text-[9px] tracking-[0.2em] font-sans opacity-40 uppercase text-brand-black px-10">
-            Archi-v // São Paulo, BR
+          <div className="text-[9px] tracking-[0.2em] font-sans opacity-40 uppercase text-brand-black pl-10">
+            Archi-v // Farroupilha, RS
           </div>
         </div>
       </div>

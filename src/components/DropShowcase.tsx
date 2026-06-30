@@ -135,11 +135,12 @@ export const DropShowcase = () => {
               className={`group flex flex-col md:col-span-6 lg:col-span-5 ${index % 2 === 0 ? "" : "md:mt-32 lg:col-start-8"}`}
             >
               {/* Image Container */}
-              <div className="relative aspect-[4/5] overflow-hidden bg-brand-cream border border-brand-black/5 group-cursor-pointer cursor-none">
+              <div className="relative aspect-[4/5] overflow-hidden bg-brand-cream border border-brand-black/5 group-cursor-pointer cursor-pointer">
                 <div className="w-full h-full overflow-hidden">
                   <img 
                     src={product.image} 
                     alt={product.name}
+                    loading="lazy"
                     className="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                     referrerPolicy="no-referrer"
                   />

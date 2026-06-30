@@ -1,51 +1,177 @@
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { CSSProperties } from "react";
 
-const PARTNERS = [
-  "Branding Lab", "Urban Collective", "SP Archive", "Street Culture", "Vanguard", "Authentic", "Visual Studio"
+const ROW1_PARTNERS = [
+  { 
+    name: "New Balance", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/ym3YCHMJ/company-new-balance-logo-png-20.png" 
+        alt="New Balance" 
+        className="h-10 md:h-12 w-auto object-contain invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  },
+  { 
+    name: "Adidas", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/qYZxNHDf/magnific-background-96647.png" 
+        alt="Adidas" 
+        className="h-12 md:h-14 w-auto object-contain scale-[1.2] invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  },
+  { 
+    name: "High", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/Rp9qN9Yk/magnific-background-96646.png" 
+        alt="High" 
+        className="h-12 md:h-14 w-auto object-contain scale-[1.3] invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  },
+  { 
+    name: "Orange", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/jvYvt47K/magnific-background-96645.png" 
+        alt="Orange" 
+        className="h-16 md:h-20 w-auto object-contain scale-[1.75] invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  },
+  { 
+    name: "Approve", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/wF0sSNBY/magnific-background-96644.png" 
+        alt="Approve" 
+        className="h-16 md:h-20 w-auto object-contain scale-[1.85] invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  }
 ];
 
-const BRAND_COLORS = ["bg-brand-pink", "bg-brand-purple", "bg-brand-green", "bg-brand-orange"];
+const ROW2_PARTNERS = [
+  { 
+    name: "Orange", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/jvYvt47K/magnific-background-96645.png" 
+        alt="Orange" 
+        className="h-16 md:h-20 w-auto object-contain scale-[1.75] invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  },
+  { 
+    name: "Approve", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/wF0sSNBY/magnific-background-96644.png" 
+        alt="Approve" 
+        className="h-16 md:h-20 w-auto object-contain scale-[1.85] invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  },
+  { 
+    name: "New Balance", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/ym3YCHMJ/company-new-balance-logo-png-20.png" 
+        alt="New Balance" 
+        className="h-10 md:h-12 w-auto object-contain invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  },
+  { 
+    name: "Adidas", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/qYZxNHDf/magnific-background-96647.png" 
+        alt="Adidas" 
+        className="h-12 md:h-14 w-auto object-contain scale-[1.2] invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  },
+  { 
+    name: "High", 
+    logo: (
+      <img 
+        src="https://i.ibb.co/Rp9qN9Yk/magnific-background-96646.png" 
+        alt="High" 
+        className="h-12 md:h-14 w-auto object-contain scale-[1.3] invert dark:invert-0 transition-all duration-300"
+        referrerPolicy="no-referrer"
+      />
+    )
+  }
+];
 
 export const Partners = () => {
-  const marqueeRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    if (!marqueeRef.current) return;
-    
-    // Instead of measuring exactly, animating by -50% because we duplicated the items perfectly
-    gsap.to(marqueeRef.current, {
-      xPercent: -50,
-      ease: "none",
-      duration: 20,
-      repeat: -1,
-    });
-  }, { scope: marqueeRef });
-
   return (
-    <section className="py-16 md:py-24 bg-brand-white border-b border-brand-black/5 overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 xl:px-24">
-        <div className="flex flex-col mb-12">
-           <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-pink font-bold mb-4 opacity-0 animate-[fadeIn_1s_ease-out_forwards]">Network // Expansion</span>
-           <h3 className="font-display font-bold text-2xl uppercase tracking-tighter text-brand-black opacity-0 animate-[fadeIn_1s_ease-out_forwards]" style={{ animationDelay: '0.2s' }}>
-             Marcas que representamos e expandimos.
-           </h3>
+    <section className="py-20 md:py-28 bg-brand-white text-brand-black border-b border-brand-black/5 overflow-hidden relative transition-colors duration-500">
+      {/* Subtle grid accent background */}
+      <div 
+        className="absolute inset-0 bg-[linear-gradient(var(--grid-color)_1px,transparent_1px),linear-gradient(90deg,var(--grid-color)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none opacity-[0.03] dark:opacity-[0.015] transition-opacity duration-500" 
+        style={{ '--grid-color': 'currentColor' } as CSSProperties} 
+      />
+      
+      {/* Decorative ambient lights */}
+      <div className="absolute -bottom-24 -right-24 w-72 h-72 bg-brand-purple/5 dark:bg-brand-purple/10 blur-[100px] pointer-events-none transition-colors duration-500" />
+
+      <div className="container mx-auto px-6 lg:px-12 xl:px-24 relative z-10">
+        <div className="flex flex-col mb-14">
+          <span className="text-[9px] font-mono uppercase tracking-[0.5em] text-brand-pink font-bold mb-4">
+            Network // Expansion
+          </span>
+          <h3 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tighter text-brand-black transition-colors duration-500">
+            Marcas que representamos e expandimos.
+          </h3>
+          <div className="w-12 h-[2px] bg-brand-pink mt-4" />
         </div>
-        
-        <div className="relative overflow-hidden w-full">
-          {/* Marquee effect */}
+      </div>
+
+      <div className="flex flex-col gap-6 relative w-full select-none">
+        {/* Row 1: Leftwards movement */}
+        <div className="overflow-hidden w-full">
           <div 
-            ref={marqueeRef}
-            className="flex gap-16 md:gap-24 whitespace-nowrap py-10 w-fit"
+            className="flex gap-4 md:gap-6 whitespace-nowrap py-1 w-fit pr-4 animate-marquee-left hover:[animation-play-state:paused] cursor-pointer"
           >
-            {/* Real items and duplicated items side-by-side for infinite seamless loop */}
-            {[...PARTNERS, ...PARTNERS].map((partner, index) => (
-              <div key={index} className="flex items-center gap-4">
-                <div className={`w-2 h-2 ${BRAND_COLORS[index % BRAND_COLORS.length]} rounded-full`} />
-                <span className="font-display font-black text-3xl md:text-5xl uppercase tracking-tighter text-brand-black opacity-10 hover:opacity-100 transition-opacity cursor-default">
-                  {partner}
-                </span>
+            {[...ROW1_PARTNERS, ...ROW1_PARTNERS, ...ROW1_PARTNERS, ...ROW1_PARTNERS].map((partner, index) => (
+              <div 
+                key={index} 
+                className="inline-flex items-center justify-center bg-brand-black/[0.02] border border-brand-black/5 hover:border-brand-pink/30 hover:bg-brand-black/[0.05] px-10 py-5 min-w-[200px] md:min-w-[240px] h-16 md:h-20 transition-all duration-500 group"
+              >
+                <div className="opacity-65 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                  {partner.logo}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2: Rightwards movement */}
+        <div className="overflow-hidden w-full">
+          <div 
+            className="flex gap-4 md:gap-6 whitespace-nowrap py-1 w-fit pr-4 animate-marquee-right hover:[animation-play-state:paused] cursor-pointer"
+          >
+            {[...ROW2_PARTNERS, ...ROW2_PARTNERS, ...ROW2_PARTNERS, ...ROW2_PARTNERS].map((partner, index) => (
+              <div 
+                key={index} 
+                className="inline-flex items-center justify-center bg-brand-black/[0.02] border border-brand-black/5 hover:border-brand-purple/30 hover:bg-brand-black/[0.05] px-10 py-5 min-w-[200px] md:min-w-[240px] h-16 md:h-20 transition-all duration-500 group"
+              >
+                <div className="opacity-65 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                  {partner.logo}
+                </div>
               </div>
             ))}
           </div>

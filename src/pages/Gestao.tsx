@@ -1,25 +1,19 @@
 import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useHeroTitleAnimation } from "../hooks/useHeroTitleAnimation";
 
 export const Gestao = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
 
-  useGSAP(() => {
-    if (!containerRef.current) return;
-
-    if (heroTitleRef.current) {
-      const splitTitle = new SplitType(heroTitleRef.current, { types: 'lines,words' });
-      gsap.fromTo(splitTitle.words,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, stagger: 0.1, duration: 1.2, ease: "power4.out", delay: 0.1 }
-      );
-    }
-  }, { scope: containerRef });
+  // Apply premium title entry animation
+  useHeroTitleAnimation(heroTitleRef, containerRef, {
+    splitType: "lines,words,chars",
+    animateTarget: "chars",
+    delay: 0.15,
+    staggerAmount: 0.8,
+  });
 
   return (
     <div ref={containerRef} className="bg-brand-white text-brand-black pt-32">

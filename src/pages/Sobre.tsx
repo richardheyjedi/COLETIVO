@@ -1,39 +1,24 @@
 import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { EditorialPhotoGrid } from "../components/EditorialPhotoGrid";
+import { useFadeUpAnimation } from "../hooks/useFadeUpAnimation";
+import { useHeroTitleAnimation } from "../hooks/useHeroTitleAnimation";
 
 export const Sobre = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
 
-  useGSAP(() => {
-    if (!containerRef.current) return;
+  // Apply premium title entry animation
+  useHeroTitleAnimation(heroTitleRef, containerRef, {
+    splitType: "lines,words,chars",
+    animateTarget: "chars",
+    delay: 0.2,
+    staggerAmount: 0.8,
+  });
 
-    if (heroTitleRef.current) {
-      const splitTitle = new SplitType(heroTitleRef.current, { types: 'lines,words,chars' });
-      gsap.fromTo(splitTitle.chars,
-        { opacity: 0, y: 40, rotateX: -90 },
-        { opacity: 1, y: 0, rotateX: 0, stagger: 0.05, duration: 1.2, ease: "power4.out", delay: 0.2 }
-      );
-    }
-    
-    gsap.utils.toArray('.fade-up').forEach((el: any) => {
-      gsap.fromTo(el, 
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1, y: 0, duration: 1, ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 80%",
-          }
-        }
-      );
-    });
-
-  }, { scope: containerRef });
+  // Shared scroll-triggered fade-up for all .fade-up elements
+  useFadeUpAnimation(containerRef);
 
   return (
     <div ref={containerRef} className="bg-brand-white text-brand-black pt-32">
@@ -56,19 +41,50 @@ export const Sobre = () => {
         </div>
       </section>
 
-      {/* History */}
+      {/* Structure Section */}
       <section className="px-6 lg:px-12 xl:px-24 py-24 md:py-32 bg-brand-true-black text-brand-true-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/2 h-full opacity-20 pointer-events-none">
-           <img src="https://images.unsplash.com/photo-1542044896530-05d85be9b11a?q=80&w=1925&auto=format&fit=crop" alt="Background" className="w-full h-full object-cover grayscale mix-blend-overlay" referrerPolicy="no-referrer" />
-        </div>
-        <div className="max-w-4xl grid grid-cols-1 md:grid-cols-12 gap-12 relative z-10 mx-auto">
-          <div className="md:col-span-4 fade-up">
-            <h2 className="font-display font-black text-4xl uppercase tracking-tighter">Nossa Estrutura</h2>
+        {/* Background glow effects */}
+        <div className="absolute top-[10%] right-[-10%] w-[30%] h-[40%] bg-brand-purple/10 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[30%] h-[40%] bg-brand-pink/5 blur-[120px] pointer-events-none" />
+
+        <div className="max-w-6xl grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 relative z-10 mx-auto">
+          {/* Left Column: Title */}
+          <div className="lg:col-span-4 fade-up flex flex-col justify-start">
+            <span className="text-[9px] font-mono tracking-[0.5em] text-brand-pink font-bold block mb-4 uppercase italic">
+              // Core Business
+            </span>
+            <h2 className="font-display font-black text-4xl sm:text-5xl uppercase tracking-tighter leading-none mb-6">
+              Nossa <br />
+              <span className="text-brand-purple font-sans font-light italic lowercase tracking-normal">estrutura.</span>
+            </h2>
+            <div className="w-12 h-[2px] bg-brand-pink mb-8" />
           </div>
-          <div className="md:col-span-8 flex flex-col gap-8 fade-up">
-            <p className="text-xl font-light italic text-brand-true-white/80">"Nossa estrutura integra gestão estratégica, representação comercial, inteligência digital, showroom, relacionamento, desenvolvimento de produto e experiências conectadas à cultura urbana."</p>
-            <p className="text-sm font-medium uppercase tracking-[0.1em] text-brand-true-white/50 leading-loose">
-               Hoje atendemos centenas de clientes ativos e operamos uma das maiores estruturas especializadas em streetwear do Sul do Brasil.
+
+          {/* Right Column: Numbered Grid & Summary */}
+          <div className="lg:col-span-8 flex flex-col gap-10 fade-up">
+            {/* Numbered Pillars Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6 border-t border-b border-white/10 py-10">
+              {[
+                { num: "01", name: "Gestão Estratégica" },
+                { num: "02", name: "Representação Comercial" },
+                { num: "03", name: "Inteligência Digital" },
+                { num: "04", name: "Showroom & Ambientação" },
+                { num: "05", name: "Foco em Relacionamento" },
+                { num: "06", name: "Desenvolvimento de Produto" },
+                { num: "07", name: "Experiências Culturais" }
+              ].map((pillar, index) => (
+                <div key={index} className="flex items-center gap-4 group">
+                  <span className="font-mono text-xs text-brand-pink font-bold shrink-0">{pillar.num} //</span>
+                  <span className="font-display font-bold text-xs uppercase tracking-wider text-brand-true-white/80 group-hover:text-brand-pink transition-colors duration-300">
+                    {pillar.name}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Subtext Statement */}
+            <p className="text-[11px] sm:text-xs font-medium uppercase tracking-[0.15em] text-brand-true-white/60 leading-loose max-w-2xl">
+              Hoje atendemos <span className="text-brand-pink font-black">centenas de clientes ativos</span> e operamos uma das <span className="text-brand-purple font-black">maiores estruturas especializadas</span> em streetwear do Sul do Brasil.
             </p>
           </div>
         </div>
@@ -120,6 +136,9 @@ export const Sobre = () => {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <EditorialPhotoGrid />
+
       {/* CTA */}
       <section className="py-24 md:py-40 bg-brand-white text-center flex flex-col items-center justify-center px-6">
         <h2 className="font-display font-black text-4xl sm:text-6xl md:text-7xl uppercase tracking-tighter mb-12 fade-up">
@@ -135,3 +154,4 @@ export const Sobre = () => {
     </div>
   );
 };
+

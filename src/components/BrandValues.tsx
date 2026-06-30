@@ -129,7 +129,7 @@ export const BrandValues = () => {
                   </div>
                 </div>
 
-                <h3 className="font-display font-black text-xl sm:text-2xl md:text-2xl lg:text-lg xl:text-[22px] 2xl:text-3xl uppercase tracking-tighter text-brand-black group-hover:text-brand-pink transition-colors duration-500 mb-4 font-bold leading-none break-words">
+                <h3 className="font-display font-black text-lg sm:text-xl md:text-xl lg:text-base xl:text-lg 2xl:text-xl uppercase tracking-tighter text-brand-black group-hover:text-brand-pink transition-colors duration-500 mb-4 font-bold leading-none break-keep">
                   {v.title}
                 </h3>
               </div>
@@ -153,7 +153,7 @@ export const BrandValues = () => {
               <div className="w-2 h-2 rounded-full bg-brand-green" />
               <div className="w-2 h-2 rounded-full bg-brand-orange" />
            </div>
-           <div className="text-[10px] font-mono uppercase tracking-[0.5em] opacity-20">São Paulo Digital Archive</div>
+           <div className="text-[10px] font-mono uppercase tracking-[0.5em] opacity-20">Farroupilha Digital Archive</div>
         </div>
       </div>
     </section>

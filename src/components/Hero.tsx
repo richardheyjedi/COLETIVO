@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { ArrowDown } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
+import { useHeroTitleAnimation } from "../hooks/useHeroTitleAnimation";
 
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,17 +12,22 @@ export const Hero = () => {
   const labelRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
+  // Apply premium title entry animation
+  useHeroTitleAnimation(titleRef, containerRef, {
+    splitType: "lines,words,chars",
+    animateTarget: "chars",
+    delay: 0.5,
+    staggerAmount: 0.8,
+    yOffset: 60,
+  });
+
   useGSAP(() => {
     if (!containerRef.current || !titleRef.current) return;
-
-    // Split text for title
-    const splitTitle = new SplitType(titleRef.current, { types: 'lines,words,chars' });
 
     const tl = gsap.timeline();
 
     tl.fromTo(imageWrapperRef.current, { scale: 1.1, filter: "blur(10px)" }, { scale: 1, filter: "blur(0px)", duration: 2, ease: "power3.out" }, 0)
       .fromTo(labelRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, 0.5)
-      .fromTo(splitTitle.chars, { opacity: 0, y: 40, rotateX: -90 }, { opacity: 1, y: 0, rotateX: 0, stagger: 0.05, duration: 1.2, ease: "power4.out" }, 0.5)
       .fromTo(ctaRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1, ease: "power3.out" }, 1.5);
 
     // Parallax on scroll
@@ -37,10 +42,6 @@ export const Hero = () => {
         scrub: true,
       }
     });
-
-    return () => {
-      splitTitle.revert();
-    };
   }, { scope: containerRef });
 
   return (
@@ -51,19 +52,26 @@ export const Hero = () => {
       {/* Background Semantic Grid */}
       <div className="absolute inset-0 grid-bg opacity-40 z-0" />
       
-      {/* Editorial Image - Main Visual */}
+      {/* Editorial Video - Main Visual */}
       <div 
         ref={imageWrapperRef}
-        className="absolute inset-0 z-0 h-full w-full"
+        className="absolute inset-0 z-0 h-full w-full overflow-hidden pointer-events-none bg-black"
       >
-        <div className="absolute inset-0 bg-brand-white/40 z-10" />
-        <img 
-          src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=2010&auto=format&fit=crop" 
-          alt="Campaign"
-          className="w-full h-full object-cover grayscale opacity-90"
+        <div className="absolute inset-0 bg-white/15 dark:bg-black/40 z-10 transition-colors duration-500" />
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          preload="metadata"
+          aria-label="Vídeo de fundo do CØLETIVO"
+          className="w-full h-full object-cover opacity-100 transition-opacity duration-500"
           referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-white via-transparent to-transparent z-10" />
+        >
+          <source src="https://www.image2url.com/r2/default/videos/1782788850483-b9096a59-afa9-4904-9785-a09c03cbf870.mp4" type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-white to-transparent z-10 transition-colors duration-500" />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 xl:px-24 relative z-20">
@@ -87,12 +95,9 @@ export const Hero = () => {
           >
             <h1 
               ref={titleRef}
-              className="font-display font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight md:leading-[1.1] tracking-tighter uppercase mb-4 md:mb-6 text-brand-black perspective-1000 max-w-4xl text-center"
+              className="font-display font-black text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight md:leading-[1.15] tracking-tighter uppercase mb-4 md:mb-6 text-brand-black perspective-1000 max-w-3xl text-center"
             >
-              O maior hub de streetwear, negócios e marcas{" "}
-              <span className="font-sans font-light lowercase tracking-widest text-brand-pink block mt-2 text-xl sm:text-3xl md:text-4xl lg:text-5xl">
-                do Sul do país.
-              </span>
+              O maior hub de streetwear, negócios e marcas
             </h1>
 
             {/* Float Floating Element (Asterisk) */}

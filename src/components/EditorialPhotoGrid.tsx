@@ -30,24 +30,24 @@ interface Look {
 const DEFAULT_LOOKS: Look[] = [
   {
     id: "look-01",
-    title: "Cøletivo Barbearia",
+    title: "Estética Grooming",
     category: "BARBEARIA",
     model: "Espaço Grooming",
     location: "Sede Cøletivo",
-    image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop",
+    image: "https://i.ibb.co/67t2zn1x/IMG-1422.avif",
     year: "2026",
-    shades: "Estética Retrô-Industrial",
-    credits: "Design: Cøletivo Hub"
+    shades: "Design Retrô-Industrial",
+    credits: "Cøletivo Crew"
   },
   {
     id: "look-02",
-    title: "Curadoria Vestuário",
+    title: "Visual Merchandising",
     category: "LOJA",
     model: "Araras Streetwear",
     location: "Sede Cøletivo",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop",
+    image: "https://i.ibb.co/zHxTdn7G/IMG-1583.avif",
     year: "2026",
-    shades: "Visual Merchandising",
+    shades: "Curadoria Premium",
     credits: "Styling: Cøletivo Retail"
   },
   {
@@ -56,89 +56,156 @@ const DEFAULT_LOOKS: Look[] = [
     category: "BARBEARIA",
     model: "Estação Clássica",
     location: "Sede Cøletivo",
-    image: "https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?q=80&w=1200&auto=format&fit=crop",
+    image: "https://i.ibb.co/CszVZyDj/IMG-1612.avif",
     year: "2026",
     shades: "Equipamentos Prime",
     credits: "Grooming: Cøletivo Crew"
   },
   {
     id: "look-04",
-    title: "Araras Industriais",
-    category: "LOJA",
-    model: "Espaço Comercial",
-    location: "Sede Cøletivo",
-    image: "https://images.unsplash.com/photo-1567401893930-7db751d7b63e?q=80&w=1200&auto=format&fit=crop",
-    year: "2026",
-    shades: "Arquitetura Concreto",
-    credits: "Design: Studio Cøletivo"
-  },
-  {
-    id: "look-05",
-    title: "Estúdio de Produção",
-    category: "ESTÚDIO",
-    model: "Sound Deck & Synth",
-    location: "Cøletivo Lab",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1200&auto=format&fit=crop",
-    year: "2026",
-    shades: "Música & Criação",
-    credits: "Produção: Cøletivo Sound"
-  },
-  {
-    id: "look-06",
     title: "Espaço Convivência",
     category: "LOUNGE",
     model: "Café Gourmet Lounge",
     location: "Cøletivo Lounge",
-    image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop",
+    image: "https://i.ibb.co/Ng8gsrRw/IMG-2417.avif",
     year: "2026",
     shades: "Networking & Conexões",
     credits: "Cøletivo Experience"
   },
   {
-    id: "look-07",
-    title: "Editorial Streetwear A/W",
+    id: "look-05",
+    title: "Streetwear Curadoria",
     category: "LOJA",
-    model: "Heavy Cotton Hoodie",
-    location: "São Paulo, BR",
-    image: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
+    model: "Estampa Autoral",
+    location: "Sede Cøletivo",
+    image: "https://i.ibb.co/mC4JCfkb/IMG-2422.avif",
     year: "2026",
-    shades: "Tons Terrosos & Texturas",
-    credits: "Showroom Cøletivo"
+    shades: "Street Fashion",
+    credits: "Cøletivo Crew"
+  },
+  {
+    id: "look-06",
+    title: "Araras Industriais",
+    category: "LOJA",
+    model: "Espaço Comercial",
+    location: "Sede Cøletivo",
+    image: "https://i.ibb.co/TxGpj03z/IMG-2424.avif",
+    year: "2026",
+    shades: "Arquitetura Concreto",
+    credits: "Design: Studio Cøletivo"
+  },
+  {
+    id: "look-07",
+    title: "Sound Deck & Synthesizer",
+    category: "ESTÚDIO",
+    model: "Equipamentos de Mixagem",
+    location: "Cøletivo Lab",
+    image: "https://i.ibb.co/Jjn525tX/IMG-3380.avif",
+    year: "2026",
+    shades: "Criação Musical",
+    credits: "Produção: Cøletivo Sound"
   },
   {
     id: "look-08",
-    title: "Curadoria Acessórios",
-    category: "LOJA",
-    model: "Bolsas Utilitárias",
-    location: "São Paulo, BR",
-    image: "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
+    title: "Lounge & Conexões",
+    category: "LOUNGE",
+    model: "Sofá & Conforto",
+    location: "Cøletivo Lounge",
+    image: "https://i.ibb.co/ksvfnch7/IMG-3502.avif",
     year: "2026",
-    shades: "Design Funcional",
-    credits: "Styling: Cøletivo Crew"
+    shades: "Espaço Social",
+    credits: "Cøletivo Experience"
   },
   {
     id: "look-09",
+    title: "Música & Criação",
+    category: "ESTÚDIO",
+    model: "Controladores MIDI",
+    location: "Cøletivo Lab",
+    image: "https://i.ibb.co/xtrLDrbm/IMG-3503.avif",
+    year: "2026",
+    shades: "Música Eletrônica",
+    credits: "Produção: Cøletivo Sound"
+  },
+  {
+    id: "look-10",
+    title: "Corte & Barba Clássicos",
+    category: "BARBEARIA",
+    model: "Serviço Completo",
+    location: "Sede Cøletivo",
+    image: "https://i.ibb.co/n84VKp94/IMG-3509.avif",
+    year: "2026",
+    shades: "Estilo & Cuidado",
+    credits: "Grooming: Cøletivo Crew"
+  },
+  {
+    id: "look-11",
     title: "Lookbook Linha Core",
     category: "LOJA",
     model: "Camisetas Oversized",
-    location: "São Paulo, BR",
-    image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?q=80&w=1200&auto=format&fit=crop",
+    location: "Farroupilha, RS",
+    image: "https://i.ibb.co/whryv2m1/IMG-3683.avif",
     year: "2026",
     shades: "Algodão Sustentável 260g",
     credits: "Campanha: Cøletivo Core"
   },
   {
-    id: "look-10",
-    title: "Estilo Urbano Ativo",
+    id: "look-12",
+    title: "Estilo Urbano Moderno",
     category: "LOJA",
-    model: "Puffer Jacket Concept",
-    location: "Showroom Sul",
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
+    model: "Visual Casual",
+    location: "Farroupilha, RS",
+    image: "https://i.ibb.co/chgRJWC9/IMG-3684-JPG.jpg",
     year: "2026",
-    shades: "Isolamento Térmico Técnico",
-    credits: "Design: Studio Cøletivo"
+    shades: "Coleção Outono/Inverno",
+    credits: "Showroom Cøletivo"
+  },
+  {
+    id: "look-13",
+    title: "Estilo Urbano Crew",
+    category: "BARBEARIA",
+    model: "Corte Moderno",
+    location: "Sede Cøletivo",
+    image: "https://i.ibb.co/B2Gc4HSk/IMG-4305.avif",
+    year: "2026",
+    shades: "Estética Contemporânea",
+    credits: "Grooming: Cøletivo Crew"
+  },
+  {
+    id: "look-14",
+    title: "Ambiente & Café",
+    category: "LOUNGE",
+    model: "Bar & Recepção",
+    location: "Cøletivo Lounge",
+    image: "https://i.ibb.co/99zLC4Tq/IMG-4306.avif",
+    year: "2026",
+    shades: "Café Especial",
+    credits: "Cøletivo Experience"
+  },
+  {
+    id: "look-15",
+    title: "DJ Set Setup",
+    category: "ESTÚDIO",
+    model: "Pickups & CDJs",
+    location: "Cøletivo Lab",
+    image: "https://i.ibb.co/5gH6msjF/IMG-5762.avif",
+    year: "2026",
+    shades: "Curso de DJ",
+    credits: "Cøletivo Sound"
+  },
+  {
+    id: "look-16",
+    title: "DJ Curso & Formação",
+    category: "ESTÚDIO",
+    model: "Aula Prática de DJ",
+    location: "Cøletivo Lab",
+    image: "https://i.ibb.co/kV3s9Gg8/IMG-5763.avif",
+    year: "2026",
+    shades: "Cultura DJing",
+    credits: "Cøletivo Sound"
   }
 ];
+
 
 const LOCAL_STORAGE_KEY = "coletivo_custom_gallery";
 
@@ -147,7 +214,7 @@ interface EditorialPhotoGridProps {
   simpleMode?: boolean;
 }
 
-export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: EditorialPhotoGridProps = {}) => {
+export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = true }: EditorialPhotoGridProps = {}) => {
   const [looks, setLooks] = useState<Look[]>([]);
   const [activeTab, setActiveTab] = useState<string>("ALL");
   const [selectedLookIndex, setSelectedLookIndex] = useState<number | null>(null);
@@ -195,12 +262,7 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
   };
 
   // Filter gallery looks
-  const filteredLooks = looks.filter(look => {
-    if (categoryFilter) return look.category === categoryFilter;
-    if (activeTab === "ALL") return true;
-    if (activeTab === "CUSTOM") return look.isCustom;
-    return look.category === activeTab;
-  });
+  const filteredLooks = looks;
 
   // Handle Drag & Drop Events
   const handleDrag = (e: React.DragEvent) => {
@@ -347,7 +409,7 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
               {simpleMode ? "// Lookbook & Editorial" : "// Registro interno dos ambientes"}
             </span>
             <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl tracking-tighter text-brand-black">
-              {simpleMode ? "Lookbook" : "Galeria"} <span className="font-sans font-light italic lowercase text-brand-pink">Cøletivo.</span>
+              {simpleMode ? "Nosso" : "Galeria"} <span className="font-sans font-light italic lowercase text-brand-pink">espaço.</span>
             </h2>
           </div>
 
@@ -383,36 +445,7 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
           </div>
         </div>
 
-        {/* Filters Tabs row */}
-        {!simpleMode && (
-          <div className="flex flex-wrap gap-2 md:gap-4 mb-12">
-            {[
-              { tag: "ALL", label: "Tudo" },
-              { tag: "LOJA", label: "Loja" },
-              { tag: "BARBEARIA", label: "Barbearia" },
-              { tag: "ESTÚDIO", label: "Estúdio" },
-              { tag: "LOUNGE", label: "Lounge" },
-              { tag: "CUSTOM", label: "Enviados por você" }
-            ].map((tab) => {
-              // Check if there are any custom looks before displaying tab or just show it
-              if (tab.tag === "CUSTOM" && !looks.some(l => l.isCustom)) return null;
-              
-              return (
-                <button
-                  key={tab.tag}
-                  onClick={() => setActiveTab(tab.tag)}
-                  className={`px-4 py-2 text-[10px] sm:text-xs font-mono tracking-widest transition-all duration-300 border ${
-                    activeTab === tab.tag
-                      ? "bg-brand-black border-brand-black text-brand-true-white font-bold"
-                      : "bg-transparent border-brand-black/10 text-brand-black/60 hover:border-brand-black/30 hover:text-brand-black"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              );
-            })}
-          </div>
-        )}
+
 
         {/* Beautiful Real CSS Masonry Columns Layout */}
         <div className="columns-1 sm:columns-2 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
@@ -456,6 +489,7 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
                   <img 
                     src={look.image} 
                     alt={look.title} 
+                    loading="lazy"
                     referrerPolicy="no-referrer"
                     className="w-full h-auto max-h-[500px] object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-102 transition-all duration-700"
                   />
@@ -464,16 +498,13 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
                   <div className="absolute inset-0 bg-brand-black/10 opacity-30 group-hover:opacity-0 transition-opacity duration-500 pointer-events-none" />
                   
                   {/* Tag Indicator */}
-                  <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
-                    <span className="px-2 py-1 bg-brand-black text-brand-true-white text-[8px] font-bold tracking-widest font-mono">
-                      {look.category}
-                    </span>
-                    {look.isCustom && (
+                  {look.isCustom && (
+                    <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
                       <span className="px-2 py-1 bg-brand-pink text-brand-true-white text-[8px] font-bold uppercase tracking-widest font-mono">
                         ENVIADO
                       </span>
-                    )}
-                  </div>
+                    </div>
+                  )}
 
                   {/* Absolute Delete Button for easy management right on grid hover */}
                   {!simpleMode && (
@@ -679,7 +710,7 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
 
                 {/* Form Metadata Fields */}
                 <div className="grid grid-cols-2 gap-4">
-                  <div>
+                  <div className="col-span-2">
                     <label className="text-[10px] font-mono uppercase tracking-widest text-brand-black/60 font-bold block mb-1.5">
                       Título
                     </label>
@@ -691,22 +722,6 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
                       placeholder="Ex: Streetwear Sul"
                       className="w-full px-3 py-2.5 border border-brand-black/10 focus:border-brand-pink text-xs uppercase tracking-wider outline-none bg-transparent"
                     />
-                  </div>
-
-                  <div>
-                    <label className="text-[10px] font-mono uppercase tracking-widest text-brand-black/60 font-bold block mb-1.5">
-                      Categoria
-                    </label>
-                    <select
-                      value={newCategory}
-                      onChange={(e) => setNewCategory(e.target.value)}
-                      className="w-full px-3 py-2.5 border border-brand-black/10 focus:border-brand-pink text-xs uppercase tracking-widest outline-none bg-brand-white"
-                    >
-                      <option value="LOJA">LOJA</option>
-                      <option value="BARBEARIA">BARBEARIA</option>
-                      <option value="ESTÚDIO">ESTÚDIO</option>
-                      <option value="LOUNGE">LOUNGE</option>
-                    </select>
                   </div>
 
                   <div>
@@ -834,9 +849,6 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
               <div className="col-span-12 md:col-span-5 flex flex-col justify-center text-brand-true-white w-full">
                 <div className="border-b border-white/10 pb-6 mb-6">
                   <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="px-2.5 py-1 bg-brand-pink text-brand-true-white text-[9px] font-mono font-bold tracking-widest uppercase">
-                      {currentLookInLightbox.category}
-                    </span>
                     <span className="px-2.5 py-1 bg-brand-black text-brand-true-white border border-white/10 text-[9px] font-mono font-bold tracking-widest uppercase">
                       FRAME // 0{selectedLookIndex + 1}
                     </span>
@@ -874,19 +886,21 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
                 </div>
 
                 <div className="flex gap-4">
-                  <button
-                    onClick={() => {
-                      if (currentLookInLightbox.id) {
-                        const updated = looks.filter(l => l.id !== currentLookInLightbox.id);
-                        saveLooks(updated);
-                        setSelectedLookIndex(null);
-                      }
-                    }}
-                    className="flex-1 py-3 border border-red-500/20 hover:border-red-500 hover:bg-red-500/10 text-red-400 font-mono text-[10px] uppercase font-bold tracking-widest transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    <Trash2 size={12} />
-                    Excluir Foto
-                  </button>
+                  {!simpleMode && (
+                    <button
+                      onClick={() => {
+                        if (currentLookInLightbox.id) {
+                          const updated = looks.filter(l => l.id !== currentLookInLightbox.id);
+                          saveLooks(updated);
+                          setSelectedLookIndex(null);
+                        }
+                      }}
+                      className="flex-1 py-3 border border-red-500/20 hover:border-red-500 hover:bg-red-500/10 text-red-400 font-mono text-[10px] uppercase font-bold tracking-widest transition-all duration-300 flex items-center justify-center gap-2"
+                    >
+                      <Trash2 size={12} />
+                      Excluir Foto
+                    </button>
+                  )}
                   <button
                     onClick={() => setSelectedLookIndex(null)}
                     className="flex-1 py-3 bg-brand-true-white hover:bg-brand-pink text-brand-true-black hover:text-brand-true-white font-mono text-[10px] uppercase font-bold tracking-widest transition-all duration-300"
@@ -899,7 +913,7 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = false }: Edito
             </div>
 
             {/* Quick slide progress indicators at the bottom */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2.5 z-10">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex gap-2.5 z-10">
               {filteredLooks.map((_, i) => (
                 <button
                   key={i}

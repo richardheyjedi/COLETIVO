@@ -1,26 +1,20 @@
 import React, { useRef, useState } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import SplitType from "split-type";
-import { ArrowUpRight, MapPin, Mail, Instagram } from "lucide-react";
+import { ArrowUpRight, MapPin, Mail, Instagram, Youtube } from "lucide-react";
 import { GoogleMapsReviews } from "../components/GoogleMapsReviews";
+import { useHeroTitleAnimation } from "../hooks/useHeroTitleAnimation";
 
 export const Contato = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroTitleRef = useRef<HTMLHeadingElement>(null);
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
 
-  useGSAP(() => {
-    if (!containerRef.current) return;
-
-    if (heroTitleRef.current) {
-      const splitTitle = new SplitType(heroTitleRef.current, { types: 'lines,words' });
-      gsap.fromTo(splitTitle.words,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, stagger: 0.1, duration: 1.2, ease: "power4.out", delay: 0.1 }
-      );
-    }
-  }, { scope: containerRef });
+  // Apply premium title entry animation
+  useHeroTitleAnimation(heroTitleRef, containerRef, {
+    splitType: "lines,words,chars",
+    animateTarget: "chars",
+    delay: 0.15,
+    staggerAmount: 0.8,
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,17 +40,7 @@ export const Contato = () => {
             </h1>
 
             <div className="flex flex-col gap-10 animate-[fadeIn_1s_ease-out_forwards] opacity-0" style={{ animationDelay: '0.4s' }}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 border-b border-brand-black/5 pb-8">
-                <div className="flex items-start gap-4 group">
-                  <MapPin className="text-brand-black/40 group-hover:text-brand-pink transition-colors shrink-0 mt-1" />
-                  <div className="flex flex-col">
-                    <span className="font-display font-bold text-lg uppercase tracking-tighter mb-2">QG São Paulo</span>
-                    <span className="text-[11px] uppercase tracking-widest font-semibold text-brand-black/50 leading-relaxed">
-                      Av. Paulista, 1578<br/>São Paulo, BR - 01310-200
-                    </span>
-                  </div>
-                </div>
-
+              <div className="grid grid-cols-1 gap-8 border-b border-brand-black/5 pb-8">
                 <div className="flex items-start gap-4 group">
                   <MapPin className="text-brand-black/40 group-hover:text-brand-pink transition-colors shrink-0 mt-1" />
                   <div className="flex flex-col">
@@ -68,7 +52,7 @@ export const Contato = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-8 sm:gap-16">
                 <div className="flex items-start gap-6 group cursor-pointer hover:opacity-100">
                   <Mail className="text-brand-black/40 group-hover:text-brand-pink transition-colors" />
                   <div className="flex flex-col">
@@ -82,9 +66,19 @@ export const Contato = () => {
                 <div className="flex items-start gap-6 group cursor-pointer">
                   <Instagram className="text-brand-black/40 group-hover:text-brand-pink transition-colors" />
                   <div className="flex flex-col">
-                    <span className="font-display font-bold text-lg uppercase tracking-tighter mb-1 font-bold">Social</span>
-                    <a href="#" className="text-xs uppercase tracking-widest font-semibold text-brand-black/55 hover:text-brand-pink transition-colors">
-                      @coletivo.archive
+                    <span className="font-display font-bold text-lg uppercase tracking-tighter mb-1 font-bold">Instagram</span>
+                    <a href="https://www.instagram.com/coletivo_co/" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-semibold text-brand-black/55 hover:text-brand-pink transition-colors">
+                      @coletivo_co
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-6 group cursor-pointer">
+                  <Youtube className="text-brand-black/40 group-hover:text-brand-pink transition-colors" />
+                  <div className="flex flex-col">
+                    <span className="font-display font-bold text-lg uppercase tracking-tighter mb-1 font-bold">YouTube</span>
+                    <a href="https://www.youtube.com/@coletivo.studioCO" target="_blank" rel="noopener noreferrer" className="text-xs uppercase tracking-widest font-semibold text-brand-black/55 hover:text-brand-pink transition-colors">
+                      @coletivo.studioCO
                     </a>
                   </div>
                 </div>
