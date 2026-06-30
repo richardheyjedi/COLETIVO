@@ -116,22 +116,32 @@ export const Barbearia = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { 
-                tag: "SPACE_01 // CHAIR", 
-                url: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=800&auto=format&fit=crop",
-                desc: "Cadeiras clássicas e ambiente industrial climatizado."
+                tag: "SPACE_01 // LOUNGE", 
+                url: "https://i.ibb.co/PvfGXzRw/Whats-App-Image-2026-06-30-at-10-10-30.jpg",
+                desc: "Ambiente climatizado integrado ao nosso showroom."
               },
               { 
-                tag: "DETAIL_02 // TOOLS", 
-                url: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=800&auto=format&fit=crop",
-                desc: "Ferramentas de precisão e insumos de alta qualidade."
+                tag: "CHAIR_02 // VINTAGE", 
+                url: "https://i.ibb.co/Wv0R0FGf/Whats-App-Image-2026-06-30-at-10-10-30-1.jpg",
+                desc: "Estações clássicas equipadas para a melhor experiência."
               },
               { 
-                tag: "CRAFT_03 // STYLE", 
-                url: "https://images.unsplash.com/photo-1605497746445-97d1b0a9eaf4?q=80&w=800&auto=format&fit=crop",
-                desc: "Técnicas de corte e barba sob medida para sua identidade."
+                tag: "DETAIL_03 // GROOMING", 
+                url: "https://i.ibb.co/21GW2h2B/Whats-App-Image-2026-06-30-at-10-10-30-2.jpg",
+                desc: "Produtos selecionados para cuidados com cabelo e barba."
+              },
+              { 
+                tag: "STYLE_04 // CULTURE", 
+                url: "https://i.ibb.co/2715YRBp/Whats-App-Image-2026-06-30-at-10-10-31.jpg",
+                desc: "Identidade urbana e estética streetwear em cada detalhe."
+              },
+              { 
+                tag: "HAIRCUT_05 // FRESH", 
+                url: "https://i.ibb.co/pvWZgZXt/Chat-GPT-Image-30-06-2026-20-18-59.png",
+                desc: "Corte de cabelo finalizado com precisão editorial."
               }
             ].map((img, idx) => (
               <div key={idx} className="flex flex-col gap-4 group fade-up">
