@@ -1,11 +1,7 @@
 import { motion } from "motion/react";
-import { Menu, Sun, Moon } from "lucide-react";
-import { useDarkMode } from "../hooks/useDarkMode";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
-  const { isDark, toggleTheme } = useDarkMode();
-
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -55,15 +51,6 @@ export const Navbar = () => {
         animate="show"
         className="flex items-center gap-6 md:gap-12"
       >
-        <motion.button
-          variants={itemVariants}
-          onClick={toggleTheme}
-          className="p-2 rounded-full hover:bg-brand-black/5 transition-colors text-brand-black flex items-center justify-center"
-          aria-label="Toggle theme"
-        >
-          {isDark ? <Sun size={18} /> : <Moon size={18} />}
-        </motion.button>
-
         <motion.div variants={itemVariants} className="text-[9px] uppercase tracking-[0.2em] font-mono opacity-40 hidden md:block">
           System Ready // 2024
         </motion.div>
