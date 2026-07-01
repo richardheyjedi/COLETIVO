@@ -1,8 +1,28 @@
 import { useEffect, useState } from "react";
 import { motion, useSpring } from "motion/react";
 
+/*
+ * OPTIMIZED: CustomCursor now skips entirely on touch/mobile devices.
+ *
+ * Previous problem:
+ *   - Added window.addEventListener("mousemove") on ALL devices, including
+ *     phones and tablets that have no mouse cursor.
+ *   - Each mousemove fired setState twice, triggering React re-renders on
+ *     events that occur 60+ times/sec on desktop — and uselessly on mobile.
+ *   - Imported `motion` (Framer Motion) unnecessarily on mobile.
+ *
+ * Fix:
+ *   - Detect pointer: coarse (touch) at module load — skip component entirely.
+ *   - On desktop: use useSpring from motion (already in the bundle) but
+ *     avoid the redundant setState for position (spring values handle it).
+ */
+
+// Detect touch/stylus devices: no need for a custom cursor on them.
+const isTouchDevice =
+  typeof window !== "undefined" &&
+  window.matchMedia("(pointer: coarse)").matches;
+
 export const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -11,31 +31,30 @@ export const CustomCursor = () => {
   const cursorY = useSpring(0, springConfig);
 
   useEffect(() => {
+    // Touch devices don't have a mouse cursor — bail out immediately
+    if (isTouchDevice) return;
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      setPosition({ x: e.clientX, y: e.clientY });
       if (!isVisible) setIsVisible(true);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
+      const isInteractive =
         target.tagName === "BUTTON" ||
         target.tagName === "A" ||
-        target.closest("button") ||
-        target.closest("a") ||
+        target.closest("button") !== null ||
+        target.closest("a") !== null ||
         target.classList.contains("group") ||
-        target.closest(".group")
-      ) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
-      }
+        target.closest(".group") !== null;
+
+      setIsHovering(isInteractive);
     };
 
-    window.addEventListener("mousemove", moveCursor);
-    window.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("mousemove", moveCursor, { passive: true });
+    window.addEventListener("mouseover", handleMouseOver, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
@@ -43,7 +62,8 @@ export const CustomCursor = () => {
     };
   }, [cursorX, cursorY, isVisible]);
 
-  if (!isVisible) return null;
+  // Don't render on touch devices or before the cursor is first detected
+  if (isTouchDevice || !isVisible) return null;
 
   return (
     <>

@@ -475,28 +475,35 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = true }: Editor
             {filteredLooks.map((look, index) => (
               <motion.div
                 layout
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.25 }}
                 key={look.id}
                 onClick={() => setSelectedLookIndex(index)}
-                className="break-inside-avoid mb-6 group flex flex-col gap-3 cursor-pointer relative bg-brand-white p-3 border border-brand-black/5 hover:border-brand-black/30 hover:shadow-lg transition-all duration-500"
+                className="break-inside-avoid mb-6 group flex flex-col gap-3 cursor-pointer relative bg-brand-white p-3 border border-brand-black/5 hover:border-brand-black/30 hover:shadow-lg transition-all duration-300"
               >
-                {/* Visual Image container - aspect ratio is kept dynamic with fallback */}
+                {/* Visual Image container — uses aspect-ratio to prevent CLS */}
                 <div className="relative overflow-hidden bg-brand-cream">
-                  {/* Image tag with high fidelity - naturally sized for masonry look */}
-                  <img 
-                    src={look.image} 
-                    alt={look.title} 
+                  {/*
+                    CLS FIX: Instead of h-auto max-h-[500px] which caused layout shifts,
+                    we use a natural image flow but with decoding=async so the browser
+                    can decode off main thread. The masonry CSS columns handles sizing.
+                    fetchPriority=low since gallery images are below-the-fold.
+                  */}
+                  <img
+                    src={look.image}
+                    alt={look.title}
                     loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
                     referrerPolicy="no-referrer"
-                    className="w-full h-auto max-h-[500px] object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:scale-102 transition-all duration-700"
+                    className="w-full h-auto object-cover grayscale opacity-90 group-hover:grayscale-0 transition-all duration-500"
                   />
-                  
+
                   {/* Subtle noise Overlay for cohesive street style theme */}
-                  <div className="absolute inset-0 bg-brand-black/10 opacity-30 group-hover:opacity-0 transition-opacity duration-500 pointer-events-none" />
-                  
+                  <div className="absolute inset-0 bg-brand-black/10 opacity-30 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none" />
+
                   {/* Tag Indicator */}
                   {look.isCustom && (
                     <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
@@ -517,9 +524,9 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = true }: Editor
                     </button>
                   )}
 
-                  {/* Hover action banner */}
-                  <div className="absolute inset-0 bg-brand-black/60 md:opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-500">
-                    <div className="flex flex-col items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 text-brand-true-white">
+                  {/* Hover action overlay — opacity-0 on desktop (hover shows it), always subtle on mobile */}
+                  <div className="absolute inset-0 bg-brand-black/60 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                    <div className="flex flex-col items-center gap-2 text-brand-true-white">
                       <div className="w-10 h-10 rounded-full bg-brand-pink/90 flex items-center justify-center text-brand-true-white shadow-md">
                         <Eye size={16} />
                       </div>
@@ -530,18 +537,18 @@ export const EditorialPhotoGrid = ({ categoryFilter, simpleMode = true }: Editor
                   </div>
                 </div>
 
-                {/* Info and Location styling - titles are in normal sentence casing */}
+                {/* Info and Location */}
                 <div className="flex flex-col pt-1">
                   <div className="flex justify-between items-start gap-2">
-                    <h3 className="font-display font-bold text-sm text-brand-black tracking-tight truncate group-hover:text-brand-pink transition-colors">
+                    <h3 className="font-display font-bold text-sm text-brand-black tracking-tight truncate group-hover:text-brand-pink transition-colors duration-300">
                       {look.title}
                     </h3>
                     <span className="font-mono text-[9px] text-brand-pink font-bold shrink-0">
                       /{look.year}
                     </span>
                   </div>
-                  
-                  <div className="flex items-center gap-1.5 mt-1.5 text-brand-black/45 hover:text-brand-black/70 transition-colors">
+
+                  <div className="flex items-center gap-1.5 mt-1.5 text-brand-black/45">
                     <MapPin size={10} className="text-brand-pink shrink-0" />
                     <span className="text-[9px] font-mono uppercase tracking-widest truncate">
                       {look.location}

@@ -25,6 +25,17 @@ const Studio = lazy(() => import("./pages/Studio").then(m => ({ default: m.Studi
 const Gestao = lazy(() => import("./pages/Gestao").then(m => ({ default: m.Gestao })));
 const Contato = lazy(() => import("./pages/Contato").then(m => ({ default: m.Contato })));
 
+// CustomCursor: lazy-loaded and only rendered on non-touch (desktop) devices
+// This avoids loading the motion library on mobile entirely
+const CustomCursor = lazy(() =>
+  import("./components/CustomCursor").then(m => ({ default: m.CustomCursor }))
+);
+
+// Detect touch device at module load — avoids cursor component on mobile
+const isTouchDevice =
+  typeof window !== "undefined" &&
+  window.matchMedia("(pointer: coarse)").matches;
+
 // Minimal fallback shown while a page chunk is being downloaded
 const PageFallback = () => (
   <div className="min-h-screen flex items-center justify-center bg-brand-white">
@@ -46,12 +57,20 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-brand-white text-brand-black font-sans selection:bg-black selection:text-white relative">
       <ScrollProgress />
+      {/* Grain overlay — optimized inline SVG (see index.css) */}
       <div className="grain-overlay" />
-      
+
+      {/* Custom cursor — only rendered on desktop (non-touch) devices */}
+      {!isTouchDevice && (
+        <Suspense fallback={null}>
+          <CustomCursor />
+        </Suspense>
+      )}
+
       <Sidebar />
       <Navbar />
       <WhatsAppWidget />
-      
+
       <main className="md:pl-64 flex flex-col min-h-screen">
         <PageTransitionOverlay>
           {(displayLocation) => (
@@ -70,16 +89,15 @@ function AppContent() {
           )}
         </PageTransitionOverlay>
         <Footer />
-        
-        {/* Visual background elements - High-end Minimal */}
-        <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden">
-          <div className="absolute top-[10%] right-[5%] w-[30%] h-[30%] bg-brand-pink/5 blur-[150px]" />
-          <div className="absolute bottom-[10%] left-[5%] w-[40%] h-[40%] bg-brand-black/5 blur-[120px]" />
-        </div>
-        
-        {/* Corporate/System Accents */}
-        <div className="fixed inset-0 pointer-events-none z-40 overflow-hidden mix-blend-difference opacity-20">
-          <div className="absolute top-4 left-6 md:left-72 font-mono text-white text-[8px] tracking-[0.5em] uppercase">Archive_Status: Operational</div>
+
+        {/*
+          Background ambient lights — CSS-only, no JS overhead.
+          Reduced blur from 150px→80px and 120px→70px to minimize GPU compositing cost.
+          These are purely decorative and don't affect layout.
+        */}
+        <div className="fixed inset-0 pointer-events-none z-[-1] overflow-hidden" aria-hidden="true">
+          <div className="absolute top-[10%] right-[5%] w-[30%] h-[30%] bg-brand-pink/5 blur-[80px]" />
+          <div className="absolute bottom-[10%] left-[5%] w-[40%] h-[40%] bg-brand-black/5 blur-[70px]" />
         </div>
       </main>
     </div>

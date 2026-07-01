@@ -3,12 +3,21 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
 
+// Check for reduced motion preference once at module load
+const prefersReducedMotion =
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
 /**
  * useHeroTitleAnimation
  *
  * Premium editorial text entrance animation for page hero headings.
  * Combines Y-translation, blur, and skew for a sophisticated reveal effect
  * inspired by luxury fashion and streetwear editorial design.
+ *
+ * Respects prefers-reduced-motion: when set, elements are made instantly
+ * visible without any animation overhead (no SplitType DOM mutation,
+ * no GSAP timeline creation).
  *
  * Usage:
  *   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -51,6 +60,13 @@ export const useHeroTitleAnimation = (
   useGSAP(
     () => {
       if (!titleRef.current) return;
+
+      // Skip the full animation for users who prefer reduced motion
+      // — just make the element immediately visible
+      if (prefersReducedMotion) {
+        gsap.set(titleRef.current, { opacity: 1, visibility: "visible" });
+        return;
+      }
 
       const split = new SplitType(titleRef.current, { types: splitType });
       const targets: Element[] = split[animateTarget] ?? [];

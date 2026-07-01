@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0F0F0F" />
+    <meta name="color-scheme" content="dark light" />
 
     <!-- SEO Primary -->
     <title>CØLETIVO | Não é só roupa. É expressão.</title>
@@ -24,10 +25,48 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>Ø</text></svg>" />
+
+    <!-- DNS Prefetch + Preconnect for all external origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
+    <link rel="preconnect" href="https://i.ibb.co" crossorigin />
+    <link rel="dns-prefetch" href="https://www.image2url.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://maps.googleapis.com" />
+
+    <!--
+      FONT LOADING STRATEGY — Non-blocking
+      Using media="print" + onload trick to load fonts asynchronously.
+      This prevents fonts from being a render-blocking resource.
+      noscript fallback ensures fonts still load if JS is disabled.
+    -->
+
+    <!-- Unbounded (Display) — Only load weights actually used: 400, 700, 900 -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Satoshi (Body) — Only load weights used: 300, 400, 500, 700 -->
+    <link
+      rel="stylesheet"
+      href="https://api.fontshare.com/v2/css?f[]=satoshi@300;400;500;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+
+    <!-- Noscript fallback for fonts -->
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&display=swap" />
+      <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300;400;500;700&display=swap" />
+    </noscript>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
