@@ -25,17 +25,6 @@ const Studio = lazy(() => import("./pages/Studio").then(m => ({ default: m.Studi
 const Gestao = lazy(() => import("./pages/Gestao").then(m => ({ default: m.Gestao })));
 const Contato = lazy(() => import("./pages/Contato").then(m => ({ default: m.Contato })));
 
-// CustomCursor: lazy-loaded and only rendered on non-touch (desktop) devices
-// This avoids loading the motion library on mobile entirely
-const CustomCursor = lazy(() =>
-  import("./components/CustomCursor").then(m => ({ default: m.CustomCursor }))
-);
-
-// Detect touch device at module load — avoids cursor component on mobile
-const isTouchDevice =
-  typeof window !== "undefined" &&
-  window.matchMedia("(pointer: coarse)").matches;
-
 // Minimal fallback shown while a page chunk is being downloaded
 const PageFallback = () => (
   <div className="min-h-screen flex items-center justify-center bg-brand-white">
@@ -59,13 +48,6 @@ function AppContent() {
       <ScrollProgress />
       {/* Grain overlay — optimized inline SVG (see index.css) */}
       <div className="grain-overlay" />
-
-      {/* Custom cursor — only rendered on desktop (non-touch) devices */}
-      {!isTouchDevice && (
-        <Suspense fallback={null}>
-          <CustomCursor />
-        </Suspense>
-      )}
 
       <Sidebar />
       <Navbar />
