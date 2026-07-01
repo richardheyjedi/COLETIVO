@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
 import { ArrowUpRight, MapPin, Mail, Instagram, Youtube } from "lucide-react";
-import { GoogleMapsReviews } from "../components/GoogleMapsReviews";
 import { useHeroTitleAnimation } from "../hooks/useHeroTitleAnimation";
 
 export const Contato = () => {
@@ -127,19 +126,6 @@ export const Contato = () => {
              </form>
           </div>
 
-        </div>
-      </section>
-
-      {/* Google Maps & Client Reviews */}
-      <section className="px-6 lg:px-12 xl:px-24 pb-32 border-t border-brand-black/10 pt-24">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col mb-16">
-            <span className="text-[10px] font-mono uppercase tracking-[0.5em] text-brand-pink font-bold block mb-4 italic">// PRESENÇA DIGITAL</span>
-            <h2 className="font-display font-black text-4xl sm:text-5xl uppercase tracking-tighter text-brand-black leading-none">
-              Nossa Unidade & <span className="font-sans font-light italic lowercase text-brand-pink tracking-normal">feedbacks.</span>
-            </h2>
-          </div>
-          <GoogleMapsReviews />
         </div>
       </section>
     </div>
