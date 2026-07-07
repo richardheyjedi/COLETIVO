@@ -5,6 +5,7 @@
 
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react";
 import { Navbar } from "./components/Navbar";
 import { Sidebar } from "./components/Sidebar";
 import { Footer } from "./components/Footer";
@@ -38,6 +39,7 @@ export default function App() {
       <SmoothScroll>
         <AppContent />
       </SmoothScroll>
+      <Analytics />
     </BrowserRouter>
   );
 }
